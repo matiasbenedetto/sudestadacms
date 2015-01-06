@@ -2,7 +2,7 @@
 
 echo "---------------------------------------"
 echo "TRAYENDO CAMBIOS DEL REPOSITORIO"
-git checkout
+git pull
 
 echo "---------------------------------------"
 echo "MIGRANDO BASE DE DATOS"
