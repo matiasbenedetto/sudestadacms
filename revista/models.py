@@ -27,19 +27,24 @@ class Seccion (models.Model):
         return Seccion.objects.filter(padre=self.id)
 
 
+class Edicion (models.Model):
+    titulo=models.CharField(max_length=255, blank=True, null=True, default=None)
+    imagen=models.ImageField(upload_to='img-ediciones', blank=True, default=None)
+    fecha=models.DateTimeField()
+    numero=models.IntegerField(blank=True, null=True)
+    especial=models.BooleanField(default=False)
+    visible=models.BooleanField(default=True)
+
+    def articulos (self):
+        return Articulo.objects.filter(edicion=self).order_by("orden")
+
+
 class Articulo (models.Model):
     def __unicode__(self):
         return self.titulo
 
-    COLUMNAS = (
-        (1, 'Columna 1'),
-        (2, 'Columna 2'),
-        (3, 'Columna 3'),
-    )
-
     publicado=models.BooleanField(default=False)
     visible_en_portada=models.BooleanField(default=False)
-    columna=models.IntegerField(choices=COLUMNAS, blank=True, null=True)
     fecha=models.DateTimeField()
     volanta=models.CharField(max_length=255, blank=True, null=True, default=None)
     titulo=models.CharField(max_length=255)
@@ -47,11 +52,13 @@ class Articulo (models.Model):
     bajada=models.TextField(blank=True)
     texto=RedactorField()
     secciones=models.ManyToManyField(Seccion, blank=True, null=True, default=None)
-    imagen=models.ImageField(upload_to='imagenes', blank=True, default=None)
+    imagen=models.ImageField(upload_to='img-articulos', blank=True, default=None)
     video = EmbedVideoField(blank=True, null=True, default=None)
     principal=models.BooleanField(default=False)
-    edicion_en_papel=models.BooleanField(default=False)
+    edicion=models.ForeignKey(Edicion, default=None, blank=True, null=True)
     permitir_comentarios=models.BooleanField(default=True)
+    orden=models.IntegerField(blank=True, null=True)
+    vistas=models.IntegerField(default=0)
 
 
 class Link (models.Model):

@@ -1,0 +1,32 @@
+{% load staticfiles %}
+
+<header class="row">
+	<div class="col-md-3">
+		<ul>
+			<li><a href="/">Principal</a></li>
+			<li><a href="">Colectivo Editorial</a></li>
+			<li><a href="">Numeros Anteriores</a></li>
+			<li><a href="">Contacto</a></li>
+			<li><a href="">Suscripcción</a></li>
+			<li><a href="">Puntos de venta</a></li>
+		</ul>
+	</div>
+
+	<div class="col-md-6">
+		<a href="/"><img class="logo" src="{% static 'img/logo.png' %}" alt="Logo Revista Sudestada"></a>
+	</div>
+
+	<div class="col-md-3">
+		<p>Revista de Cultura, Política y Sociedad</p>
+		<form class="form" id="buscar" action="" method="POST">
+			<input type="text" placeholder="Buscar...">
+		</form>
+	</div>
+
+	<ul class="col-md-12" id="secciones">
+		{% for seccion in secciones %}
+			<li><a href="/seccion/{{seccion.slug}}/">{{seccion.titulo}}</a></li>
+		{% endfor %}
+	</ul>
+
+</header>

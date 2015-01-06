@@ -1,0 +1,19 @@
+{% load staticfiles thumbnail %}
+
+<div class="sidebar col-md-3">
+	<h4>Articulos más vistos</h4>
+	<ul class="articulos">
+		{% for articulo in articulos_mas_vistos %}
+			<li>
+				<a href="/articulo/{{articulo.id}}/{{articulo.slug}}/">
+					<h3>{{articulo.titulo}}</h3>
+					<small>En revista numero {{articulo.edicion.numero}}</small>
+				</a>
+			</li>
+		{% endfor %}
+	</ul>
+
+	<div class="banner">
+		<img src="{% static 'img/banners/suscripccion.png' %}" alt="Suscribite a sudestada">
+	</div>
+</div>

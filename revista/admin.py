@@ -24,8 +24,8 @@ class ArticuloModelAdmin(admin.ModelAdmin):
     }
 	#filter_horizontal =("secciones",)
 
-	list_display = ('columna', 'titulo', 'publicado', 'visible_en_portada', 'principal', 'edicion_en_papel', 'permitir_comentarios')
-	list_editable = ('columna', 'publicado', 'visible_en_portada', 'principal', 'edicion_en_papel', 'permitir_comentarios') 
+	list_display = ('titulo', 'publicado', 'visible_en_portada', 'principal', 'permitir_comentarios')
+	list_editable = ('publicado', 'visible_en_portada', 'principal', 'permitir_comentarios') 
 	search_fields = ('titulo',)
 	list_display_links = ('titulo',)
 	prepopulated_fields = {'slug': ('titulo',)}
@@ -52,7 +52,13 @@ class SeccionModelAdmin(SortableAdminMixin, admin.ModelAdmin):
 	radio_fields = {"padre": admin.HORIZONTAL}
 
 
+class EdicionAdmin (admin.ModelAdmin):
+	model=Edicion
+	list_display=('titulo', 'numero', 'especial', 'visible')
+
+
 admin.site.register(Articulo, ArticuloModelAdmin)
+admin.site.register(Edicion, EdicionAdmin)
 admin.site.register(Seccion, SeccionModelAdmin)
 admin.site.register(Link, LinkModelAdmin)
 admin.site.register(Archivo, ArchivoModelAdmin)

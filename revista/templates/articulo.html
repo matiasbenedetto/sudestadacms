@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% load staticfiles thumbnail %}
+
+{% block titulo %}{{articulo.titulo}}{% endblock %}
+{% block descripccion %}{{articulo.bajada}}{% endblock %}
+
+{% block body_class %}articulo{% endblock %}
+
+{% block contenido %}
+	<div class="row">
+
+		<div class="encabezado col-md-12">
+			<small>{{articulo.volanta}}</small>
+			<h1>{{articulo.titulo}}</h1>
+			<p>{{articulo.bajada}}</p>
+		
+			<div class="row">
+				<div class="edicion col-md-2">
+					<h3 class="id-edicion">Último Número</h3>
+
+					{% thumbnail edicion.imagen "250" as im %}
+					    <img class="tapa" src="{{ im.url }}">
+					{% endthumbnail %}
+
+					<h2>{{edicion.titulo}}</h2>
+
+					<h3>Sumario</h3>
+					<ul class="sumario">
+						{% for articulo in edicion.articulos %}
+							<li><a href="/articulo/{{articulo.id}}/{{articulo.slug}}/">{{articulo.titulo}}</a></li>
+						{% endfor %}
+					</ul>
+				</div>
+
+				<div class="cuerpo col-md-7">
+					{% if articulo.imagen|is_portrait %}
+						{% thumbnail articulo.imagen  "500" upscale=True as im %}
+							<img src="{{ im.url }}" class="main-img-portait">
+						{% endthumbnail %}
+					{% else %}
+						{% thumbnail articulo.imagen  "800" upscale=True as im %}
+							<img src="{{ im.url }}" class="main-img">
+						{% endthumbnail %}
+					{% endif %}
+
+					{{articulo.texto|safe}}
+				</div>
+
+				{% include "sidebar.html" %}
+
+				<div class="articulos-relacionados col-md-9">
+					{% for articulo in articulos_relacionados %}
+						<div class="articulo">
+							<h2>{{articulo.titulo}}</h2>
+							<p>{{articulo.bajada}}</p>
+						</div>
+					{% endfor %}
+				</div>
+
+			</div>
+
+		</div>
+
+
+		
+
+		
+	</div>
+
+
+{% endblock %}
