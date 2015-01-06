@@ -15,6 +15,8 @@ def articulo(request, id_articulo, slug):
 	articulo=Articulo.objects.get(id=id_articulo, slug=slug)
 	articulo.vistas=articulo.vistas + 1
 	articulo.save()
-	#articulos_relacionados=Articulo.objects.filter(publicado=True, secciones__in=articulo.secciones)
+	
+	articulos_relacionados=Articulo.objects.filter(publicado=True)[:4]
+
 	edicion=articulo.edicion
 	return render_to_response("articulo.html", locals(), context_instance=RequestContext(request))
