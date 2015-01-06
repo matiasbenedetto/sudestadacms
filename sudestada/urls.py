@@ -13,7 +13,7 @@ urlpatterns = patterns('',
 
     url(r'^$', 'revista.views.index', name='index'),
 
-    url(r'^articulo/(?P<id_articulo>\d+)/(?P<slug>\w+)/$', 'revista.views.articulo', name='articulo'),
+    url(r'^articulo/(?P<id_articulo>\d+)/(?P<slug>[-\w]+)/$', 'revista.views.articulo', name='articulo'),
 
 )
 
