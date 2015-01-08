@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% load staticfiles thumbnail %}
+
+
+{% block body_class %}index{% endblock %}
+
+
+{% block contenido %}
+
+<div class="row">
+	<div class="col-md-12">
+		<div class="row edicion edicion-actual">
+			<div class="col-md-3">
+				<h3 class="id-edicion">
+					Edición
+					{% if edicion.especial %} Especial{% endif %}
+					{% if edicion.numero %} N° {{edicion.numero}}{% endif %}
+				</h3>
+
+				{% thumbnail edicion.imagen "250" as im %}
+				    <img class="tapa" src="{{ im.url }}">
+				{% endthumbnail %}
+
+				<h2>{{edicion.titulo}}</h2>
+
+				<h3>Sumario</h3>
+				<ul class="sumario">
+					{% for articulo in edicion.articulos %}
+						<li><a href="/articulo/{{articulo.id}}/{{articulo.slug}}/">{{articulo.titulo}}</a></li>
+					{% endfor %}
+				</ul>
+			</div>
+			<div class="col-md-9">
+				<div class="row">
+					{% for articulo in edicion.articulos %}
+
+						{% if forloop.counter == 1 %}
+							<div class="articulo col-md-7">
+								<a href="/articulo/{{articulo.id}}/{{articulo.slug}}/">
+									<small>{{articulo.volanta}}</small>
+									<h1>{{articulo.titulo}}</h1>
+									{% thumbnail articulo.imagen "500x250" crop="center" as im %}
+									    <img src="{{ im.url }}" alt="{{articulo.titulo}}">
+									{% endthumbnail %}
+									<p>{{articulo.bajada|truncatewords:40}}</p>
+								</a>
+							</div>
+						{% endif %}
+
+						{% if forloop.counter == 2 %}
+							<div class="articulo col-md-5">
+								<a href="/articulo/{{articulo.id}}/{{articulo.slug}}/">
+									<small>{{articulo.volanta}}</small>
+									<h1>{{articulo.titulo}}</h1>
+									{% thumbnail articulo.imagen "350x200" crop="center" as im %}
+									    <img src="{{ im.url }}" alt="{{articulo.titulo}}">
+									{% endthumbnail %}
+									<p>{{articulo.bajada|truncatewords:25}}</p>
+								</a>
+							</div>
+						{% endif %}
+
+						{% if forloop.counter >= 3 %}
+							<div class="articulo col-md-4">
+								<a href="/articulo/{{articulo.id}}/{{articulo.slug}}/">
+									<small>{{articulo.volanta}}</small>
+									<h3>{{articulo.titulo}}</h3>
+									{% thumbnail articulo.imagen "250x130" crop="center" as im %}
+									    <img src="{{ im.url }}" alt="{{articulo.titulo}}">
+									{% endthumbnail %}
+									<p>{{articulo.bajada|truncatewords:30}}</p>
+								</a>
+							</div>
+						{% endif %}
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}
+

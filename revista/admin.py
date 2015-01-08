@@ -54,6 +54,7 @@ class SeccionModelAdmin(SortableAdminMixin, admin.ModelAdmin):
 
 class EdicionAdmin (admin.ModelAdmin):
 	model=Edicion
+	prepopulated_fields = {'slug': ('titulo',)}
 	list_display=('titulo', 'numero', 'especial', 'visible')
 
 

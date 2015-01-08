@@ -20,3 +20,8 @@ def articulo(request, id_articulo, slug):
 
 	edicion=articulo.edicion
 	return render_to_response("articulo.html", locals(), context_instance=RequestContext(request))
+
+
+def edicion (request, id_edicion, slug):
+	edicion=Edicion.objects.get(id=id_edicion, slug=slug)
+	return render_to_response("edicion.html", locals(), context_instance=RequestContext(request))

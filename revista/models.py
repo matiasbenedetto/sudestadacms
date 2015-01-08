@@ -11,7 +11,7 @@ class Seccion (models.Model):
         return self.titulo
     
     titulo=models.CharField(max_length=255)
-    slug =  models.SlugField(blank=True, max_length=100)
+    slug =  models.SlugField(max_length=100, default="")
     descripccion=models.TextField(blank=True)
     activa=models.BooleanField(default=True)
     mostrar_en_menu_superior=models.BooleanField(default=True)
@@ -29,6 +29,7 @@ class Seccion (models.Model):
 
 class Edicion (models.Model):
     titulo=models.CharField(max_length=255, blank=True, null=True, default=None)
+    slug =  models.SlugField(max_length=100, default="")
     imagen=models.ImageField(upload_to='img-ediciones', blank=True, default=None)
     fecha=models.DateTimeField()
     numero=models.IntegerField(blank=True, null=True)
