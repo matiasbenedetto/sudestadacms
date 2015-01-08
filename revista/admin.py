@@ -52,14 +52,23 @@ class SeccionModelAdmin(SortableAdminMixin, admin.ModelAdmin):
 	radio_fields = {"padre": admin.HORIZONTAL}
 
 
+
 class EdicionAdmin (admin.ModelAdmin):
 	model=Edicion
 	prepopulated_fields = {'slug': ('titulo',)}
-	list_display=('titulo', 'numero', 'especial', 'visible')
+	list_display=('titulo', 'coleccion', 'numero', 'especial', 'visible', 'cantidad_de_articulos')
+	search_fields = ('titulo',)
+
+class ColeccionAdmin (admin.ModelAdmin):
+	model=Coleccion
+	prepopulated_fields = {'slug': ('titulo',)}
+	list_display=('titulo', 'visible', 'cantidad_de_ediciones')
+	search_fields = ('titulo',)
 
 
 admin.site.register(Articulo, ArticuloModelAdmin)
 admin.site.register(Edicion, EdicionAdmin)
+admin.site.register(Coleccion, ColeccionAdmin)
 admin.site.register(Seccion, SeccionModelAdmin)
 admin.site.register(Link, LinkModelAdmin)
 admin.site.register(Archivo, ArchivoModelAdmin)

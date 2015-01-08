@@ -27,7 +27,28 @@ class Seccion (models.Model):
         return Seccion.objects.filter(padre=self.id)
 
 
+class Coleccion (models.Model):
+
+    def __unicode__(self):
+        return self.titulo
+
+    titulo=models.CharField(max_length=255, blank=True, null=True, default=None)
+    slug =  models.SlugField(max_length=100, default="")
+    visible=models.BooleanField(default=True)
+    imagen=models.ImageField(upload_to='img-colecciones', blank=True, default=None)
+
+    def ediciones (self):
+        return Edicion.objects.filter(coleccion=self, visible=True)
+
+    def cantidad_de_ediciones (self):
+        return Edicion.objects.filter(coleccion=self, visible=True).count()
+
+
 class Edicion (models.Model):
+
+    def __unicode__(self):
+        return self.titulo
+
     titulo=models.CharField(max_length=255, blank=True, null=True, default=None)
     slug =  models.SlugField(max_length=100, default="")
     imagen=models.ImageField(upload_to='img-ediciones', blank=True, default=None)
@@ -35,9 +56,13 @@ class Edicion (models.Model):
     numero=models.IntegerField(blank=True, null=True)
     especial=models.BooleanField(default=False)
     visible=models.BooleanField(default=True)
+    coleccion=models.ForeignKey(Coleccion, default=None, blank=True, null=True)
 
     def articulos (self):
-        return Articulo.objects.filter(edicion=self).order_by("orden")
+        return Articulo.objects.filter(edicion=self, publicado=True).order_by("orden")
+
+    def cantidad_de_articulos (self):
+        return Articulo.objects.filter(edicion=self, publicado=True).count()
 
 
 class Articulo (models.Model):
