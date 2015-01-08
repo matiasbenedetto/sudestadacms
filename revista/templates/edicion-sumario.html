@@ -1,0 +1,22 @@
+{% load staticfiles thumbnail %}
+
+<h3 class="id-edicion">
+	Edición
+	{% if edicion.especial %} Especial{% endif %}
+	{% if edicion.numero %} N° {{edicion.numero}}{% endif %}
+</h3>
+
+{% thumbnail edicion.imagen "250" as im %}
+    <img class="tapa" src="{{ im.url }}">
+{% endthumbnail %}
+
+<h2>{{edicion.titulo}}</h2>
+
+<h4 class="coleccion">{{edicion.coleccion.titulo}}</h4>
+
+<h3 class="sumario-titulo">Sumario</h3>
+<ul class="sumario">
+	{% for articulo in edicion.articulos %}
+		<li><a href="/articulo/{{articulo.id}}/{{articulo.slug}}/">{{articulo.titulo}}</a></li>
+	{% endfor %}
+</ul>

@@ -1081,29 +1081,48 @@ button.close{-webkit-appearance:none;padding:0;cursor:pointer;background:transpa
 .panel-warning>.panel-heading{background-image:-webkit-linear-gradient(top, #fcf8e3 0, #faf2cc 100%);background-image:-o-linear-gradient(top, #fcf8e3 0, #faf2cc 100%);background-image:-webkit-gradient(linear, left top, left bottom, from(#fcf8e3), to(#faf2cc));background-image:linear-gradient(to bottom, #fcf8e3 0, #faf2cc 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffcf8e3', endColorstr='#fffaf2cc', GradientType=0);background-repeat:repeat-x}
 .panel-danger>.panel-heading{background-image:-webkit-linear-gradient(top, #f2dede 0, #ebcccc 100%);background-image:-o-linear-gradient(top, #f2dede 0, #ebcccc 100%);background-image:-webkit-gradient(linear, left top, left bottom, from(#f2dede), to(#ebcccc));background-image:linear-gradient(to bottom, #f2dede 0, #ebcccc 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff2dede', endColorstr='#ffebcccc', GradientType=0);background-repeat:repeat-x}
 .well{background-image:-webkit-linear-gradient(top, #e8e8e8 0, #f5f5f5 100%);background-image:-o-linear-gradient(top, #e8e8e8 0, #f5f5f5 100%);background-image:-webkit-gradient(linear, left top, left bottom, from(#e8e8e8), to(#f5f5f5));background-image:linear-gradient(to bottom, #e8e8e8 0, #f5f5f5 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffe8e8e8', endColorstr='#fff5f5f5', GradientType=0);background-repeat:repeat-x;border-color:#dcdcdc;-webkit-box-shadow:inset 0 1px 3px rgba(0,0,0,0.05),0 1px 0 rgba(255,255,255,0.1);box-shadow:inset 0 1px 3px rgba(0,0,0,0.05),0 1px 0 rgba(255,255,255,0.1)}
-header{font-family:'IM Fell DW Pica',serif;color:#333;padding-top:20px}header .logo{max-width:100%}
+header{font-family:'IM Fell DW Pica',serif;color:#333;padding-top:20px;margin-bottom:20px}header .logo{max-width:100%}
 header ul{list-style:none;margin:0;padding:0}header ul a{color:#333}
-header #secciones{width:100%;text-align:center;margin-top:10px;border-top:1px solid #eee;border-bottom:1px solid #eee}header #secciones li{display:inline-block;padding:20px;padding-top:10px}
+header #secciones{width:100%;text-align:center;margin-top:10px;border-top:1px solid #eee;border-bottom:1px solid #eee}header #secciones li{display:inline-block;padding:10px}
 header form input{padding:10px;padding-top:0;margin-top:80px}
 footer{margin-top:20px;padding-top:40px;padding-bottom:40px;border-top:1px solid #aaa}footer .logo{max-width:100%}
-.index .edicion{background-color:#eee}.index .edicion .tapa{width:100%}
-.index .edicion h1,.index .edicion h2,.index .edicion h3{margin-top:5px}
-.index .edicion a{color:#000}
-.index .edicion a:hover{text-decoration:none}
-.index .edicion .id-edicion{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;background-color:#000;color:#eee;width:125%;margin-left:-25%;text-align:right;padding-right:10px;padding-top:5px;padding-bottom:5px;margin-top:20px}
-.index .edicion .sumario{margin:0;padding:0;padding-left:15px;font-size:1.3rem}.index .edicion .sumario a{color:#000}
-.index .edicion .articulo{padding-top:15px;padding-bottom:15px}.index .edicion .articulo img{width:100%;margin-bottom:20px}
-.index .edicion .articulo small{margin-top:10px}
-.index .edicion .articulo p{font-size:1.5rem}
-.index .edicion .articulo:hover{background-color:#000}.index .edicion .articulo:hover a{color:#fff}
-.index .edicion .articulo:hover img{filter:url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");filter:#808080;-webkit-filter:grayscale(100%);opacity:.85}
-.index .ediciones-anteriores{margin:0;padding:0}.index .ediciones-anteriores .edicion img{width:100%}
+.index header{margin-bottom:0}
+.index .ediciones-anteriores{background-color:#eee;padding:0;margin-bottom:40px}.index .ediciones-anteriores .edicion{padding-top:20px}.index .ediciones-anteriores .edicion p{font-family:Arial,Helvetica,Sans,Sans-serif;margin-top:10px;margin-bottom:0;font-size:1.2rem}
+.index .ediciones-anteriores .edicion h4{margin-top:5px}
+.index .ediciones-anteriores .edicion img{width:100%}
 .sidebar h4{background-color:#000;color:#fff;font-family:'IM Fell DW Pica',serif;height:30px;padding-top:7px;width:100%;padding-right:20px;padding-left:20px;position:relative}
 .sidebar h4:after{content:"";position:absolute;right:0;top:0;border-top:15px solid transparent;border-right:15px solid #fff;border-bottom:15px solid transparent}
 .sidebar .banner img{width:100%}
 .sidebar .articulos{margin:0;list-style:none;padding:0}.sidebar .articulos h3{margin-bottom:0}
 .sidebar .articulos a{color:#000}
 .sidebar .articulos a:hover{text-decoration:none}
+body.articulo .encabezado h1{margin-top:0;font-size:5.5rem}
+body.articulo .encabezado p{font-size:2rem;margin-bottom:30px}
+body.articulo .cuerpo p{font-family:Arial,Helvetica,Sans,Sans-serif;font-size:1.5rem;line-height:2.5rem;margin-bottom:2rem}
+body.articulo .cuerpo .texto p:first-child{margin-top:20px}body.articulo .cuerpo .texto p:first-child::first-letter{color:#aaa;font-size:5rem;font-weight:bold}
+body.articulo .cuerpo img{margin-bottom:20px}
+body.articulo .cuerpo img.main-img{width:100%}
+body.articulo .edicion{background-color:#eee;padding-bottom:20px}body.articulo .edicion img{width:100%}
+body.articulo .edicion .id-edicion{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;background-color:#000;color:#eee;width:125%;margin-left:-25%;text-align:right;padding-right:10px;padding-top:5px;padding-bottom:5px;margin-top:20px}
+body.articulo .edicion .sumario{margin:0;padding:0;padding-left:15px;font-size:1.3rem}body.articulo .edicion .sumario a{color:#000}
+body.articulo .articulos-relacionados .articulo{display:block;color:#000;padding-top:20px}body.articulo .articulos-relacionados .articulo img{margin-bottom:20px;width:100%}
+body.articulo .articulos-relacionados .articulo h3{margin-top:5px}
+body.articulo .articulos-relacionados .articulo p{font-size:1.5rem}
+body.articulo .articulos-relacionados .articulo:hover{background-color:#000;color:#fff}
+.edicion{background-color:#eee}.edicion .tapa{width:100%}
+.edicion h1,.edicion h2,.edicion h3{margin-top:5px}
+.edicion a{color:#000}
+.edicion a:hover{text-decoration:none}
+.edicion .id-edicion{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;background-color:#000;color:#eee;width:125%;margin-left:-25%;text-align:right;padding-right:10px;padding-top:5px;padding-bottom:5px;margin-top:20px}
+.edicion h2{margin-bottom:0}
+.edicion .coleccion{color:#aaa;margin-top:0}
+.edicion .sumario-titulo{margin-top:20px;font-family:Arial,Helvetica,Sans,Sans-serif;font-weight:bold;font-size:2rem}
+.edicion .sumario{margin:0;padding:0;padding-left:15px;font-size:1.3rem}.edicion .sumario a{color:#000}
+.edicion .articulo{padding-top:15px;padding-bottom:15px}.edicion .articulo img{width:100%;margin-bottom:20px}
+.edicion .articulo small{margin-top:10px}
+.edicion .articulo p{font-size:1.5rem}
+.edicion .articulo:hover{background-color:#000}.edicion .articulo:hover a{color:#fff}
+.edicion .articulo:hover img{filter:url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");filter:#808080;-webkit-filter:grayscale(100%);opacity:.85}
 @font-face{font-family:'bebas_thin';src:url('/static/fonts/bebas/bebasneue_thin-webfont.eot');src:url('/static/fonts/bebas/bebasneue_thin-webfont.eot?#iefix') format('embedded-opentype'),url('/static/fonts/bebas/bebasneue_thin-webfont.woff2') format('woff2'),url('/static/fonts/bebas/bebasneue_thin-webfont.woff') format('woff'),url('/static/fonts/bebas/bebasneue_thin-webfont.ttf') format('truetype'),url('/static/fonts/bebas/bebasneue_thin-webfont.svg#bebas_neuethin') format('svg');font-weight:normal;font-style:normal}@font-face{font-family:'bebas_regular';src:url('/static/fonts/bebas/bebasneue_regular-webfont.eot');src:url('/static/fonts/bebas/bebasneue_regular-webfont.eot?#iefix') format('embedded-opentype'),url('/static/fonts/bebas/bebasneue_regular-webfont.woff2') format('woff2'),url('/static/fonts/bebas/bebasneue_regular-webfont.woff') format('woff'),url('/static/fonts/bebas/bebasneue_regular-webfont.ttf') format('truetype'),url('/static/fonts/bebas/bebasneue_regular-webfont.svg#bebas_neue_regularregular') format('svg');font-weight:normal;font-style:normal}@font-face{font-family:'bebas_light';src:url('/static/fonts/bebas/bebasneue_light-webfont.eot');src:url('/static/fonts/bebas/bebasneue_light-webfont.eot?#iefix') format('embedded-opentype'),url('/static/fonts/bebas/bebasneue_light-webfont.woff2') format('woff2'),url('/static/fonts/bebas/bebasneue_light-webfont.woff') format('woff'),url('/static/fonts/bebas/bebasneue_light-webfont.ttf') format('truetype'),url('/static/fonts/bebas/bebasneue_light-webfont.svg#bebas_neuelight') format('svg');font-weight:normal;font-style:normal}@font-face{font-family:'bebas_bold';src:url('/static/fonts/bebas/bebasneue_bold-webfont.eot');src:url('/static/fonts/bebas/bebasneue_bold-webfont.eot?#iefix') format('embedded-opentype'),url('/static/fonts/bebas/bebasneue_bold-webfont.woff2') format('woff2'),url('/static/fonts/bebas/bebasneue_bold-webfont.woff') format('woff'),url('/static/fonts/bebas/bebasneue_bold-webfont.ttf') format('truetype'),url('/static/fonts/bebas/bebasneue_bold-webfont.svg#bebas_neuebold') format('svg');font-weight:normal;font-style:normal}@font-face{font-family:'bebas_book';src:url('/static/fonts/bebas/bebasneue_book-webfont.eot');src:url('/static/fonts/bebas/bebasneue_book-webfont.eot?#iefix') format('embedded-opentype'),url('/static/fonts/bebas/bebasneue_book-webfont.woff2') format('woff2'),url('/static/fonts/bebas/bebasneue_book-webfont.woff') format('woff'),url('/static/fonts/bebas/bebasneue_book-webfont.ttf') format('truetype'),url('/static/fonts/bebas/bebasneue_book-webfont.svg#bebas_neuebook') format('svg');font-weight:normal;font-style:normal}body{font-size:16px}
 h1,h2,h3,h4{font-family:bebas_bold}
 small{font-family:'IM Fell DW Pica',serif}

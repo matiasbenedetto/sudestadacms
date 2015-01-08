@@ -1,0 +1,14 @@
+.edicion{background-color:#eee}.edicion .tapa{width:100%}
+.edicion h1,.edicion h2,.edicion h3{margin-top:5px}
+.edicion a{color:#000}
+.edicion a:hover{text-decoration:none}
+.edicion .id-edicion{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;background-color:#000;color:#eee;width:125%;margin-left:-25%;text-align:right;padding-right:10px;padding-top:5px;padding-bottom:5px;margin-top:20px}
+.edicion h2{margin-bottom:0}
+.edicion .coleccion{color:#aaa;margin-top:0}
+.edicion .sumario-titulo{margin-top:20px;font-family:Arial,Helvetica,Sans,Sans-serif;font-weight:bold;font-size:2rem}
+.edicion .sumario{margin:0;padding:0;padding-left:15px;font-size:1.3rem}.edicion .sumario a{color:#000}
+.edicion .articulo{padding-top:15px;padding-bottom:15px}.edicion .articulo img{width:100%;margin-bottom:20px}
+.edicion .articulo small{margin-top:10px}
+.edicion .articulo p{font-size:1.5rem}
+.edicion .articulo:hover{background-color:#000}.edicion .articulo:hover a{color:#fff}
+.edicion .articulo:hover img{filter:url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");filter:#808080;-webkit-filter:grayscale(100%);opacity:.85}

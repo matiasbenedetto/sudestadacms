@@ -17,20 +17,7 @@
 
 			<div class="row">
 				<div class="edicion col-md-2">
-					<h3 class="id-edicion">Último Número</h3>
-
-					{% thumbnail edicion.imagen "250" as im %}
-					    <img class="tapa" src="{{ im.url }}">
-					{% endthumbnail %}
-
-					<h2>{{edicion.titulo}}</h2>
-
-					<h3>Sumario</h3>
-					<ul class="sumario">
-						{% for articulo in edicion.articulos %}
-							<li><a href="/articulo/{{articulo.id}}/{{articulo.slug}}/">{{articulo.titulo}}</a></li>
-						{% endfor %}
-					</ul>
+					{% include 'edicion-sumario.html' %}
 				</div>
 
 				<div class="cuerpo col-md-7">
