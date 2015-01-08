@@ -14,7 +14,7 @@
 			<h1>{{articulo.titulo}}</h1>
 			<p>{{articulo.bajada}}</p>
 		</div>
-		
+
 			<div class="row">
 				<div class="edicion col-md-2">
 					<h3 class="id-edicion">Último Número</h3>
@@ -44,7 +44,9 @@
 						{% endthumbnail %}
 					{% endif %}
 
-					{{articulo.texto|safe}}
+					<div class="texto">
+						{{articulo.texto|safe}}
+					</div>
 				</div>
 
 				{% include "sidebar.html" %}
