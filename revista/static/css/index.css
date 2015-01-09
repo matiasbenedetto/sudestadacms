@@ -1020,6 +1020,6 @@ button.close{-webkit-appearance:none;padding:0;cursor:pointer;background:transpa
 @media print{.visible-print-block{display:block !important}}.visible-print-inline{display:none !important}
 @media print{.visible-print-inline{display:inline !important}}.visible-print-inline-block{display:none !important}
 @media print{.visible-print-inline-block{display:inline-block !important}}@media print{.hidden-print{display:none !important}}.index header{margin-bottom:0}
-.index .ediciones-anteriores{background-color:#eee;padding:0;margin-bottom:40px}.index .ediciones-anteriores .edicion{padding-top:20px}.index .ediciones-anteriores .edicion p{font-family:Arial,Helvetica,Sans,Sans-serif;margin-top:10px;margin-bottom:0;font-size:1.2rem}
-.index .ediciones-anteriores .edicion h4{margin-top:5px}
-.index .ediciones-anteriores .edicion img{width:100%}
+.index .ediciones-anteriores{background-color:#eee;padding:0;margin-bottom:40px}.index .ediciones-anteriores .edicion-listada{padding-top:20px}.index .ediciones-anteriores .edicion-listada p{font-family:Arial,Helvetica,Sans,Sans-serif;margin-top:10px;margin-bottom:0;font-size:1.2rem}
+.index .ediciones-anteriores .edicion-listada h4{margin-top:5px}
+.index .ediciones-anteriores .edicion-listada img{width:100%}
