@@ -25,3 +25,10 @@ def articulo(request, id_articulo, slug):
 def edicion (request, id_edicion, slug):
 	edicion=Edicion.objects.get(id=id_edicion, slug=slug)
 	return render_to_response("edicion.html", locals(), context_instance=RequestContext(request))
+
+
+def coleccion (request, id_coleccion, slug):
+	coleccion=Coleccion.objects.get(id=id_coleccion, slug=slug)
+	ediciones=Edicion.objects.filter(coleccion=coleccion).order_by('numero').reverse()
+	return render_to_response("coleccion.html", locals(), context_instance=RequestContext(request))
+

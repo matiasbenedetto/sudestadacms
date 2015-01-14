@@ -36,6 +36,7 @@ class Coleccion (models.Model):
     slug =  models.SlugField(max_length=100, default="")
     visible=models.BooleanField(default=True)
     imagen=models.ImageField(upload_to='img-colecciones', blank=True, default=None)
+    descripccion=models.TextField(blank=True)
 
     def ediciones (self):
         return Edicion.objects.filter(coleccion=self, visible=True)

@@ -1,6 +1,6 @@
 {% load staticfiles thumbnail %}
 
-<li class="col-md-3 edicion-listada">
+<li class="col-md-3 edicion-listada mismo-alto">
 	<a href="/edicion/{{edicion.id}}/{{edicion.slug}}/">
 		{% thumbnail edicion.imagen "200" as im %}
 		    <img src="{{ im.url }}" alt="Tapa numero {{edicion.numero}}, {{edicion.titulo}}">
@@ -8,7 +8,9 @@
 		<p><b>N° {{edicion.numero}}</b></p>
 		<h4>{{edicion.titulo}}</h4>
 		{% if edicion.especial %}
-			<h5 class="coleccion">{{edicion.coleccion.titulo}}</h5>
+			<a href="/coleccion/{{coleccion.id}}/{{coleccion.slug}}/">
+				<h5 class="coleccion">{{edicion.coleccion.titulo}}</h5>
+			</a>
 		{% endif %}
 	</a>
 </li>
