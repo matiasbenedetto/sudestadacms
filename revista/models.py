@@ -27,6 +27,22 @@ class Seccion (models.Model):
         return Seccion.objects.filter(padre=self.id)
 
 
+class Autor (models.Model):
+
+    def __unicode__(self):
+        return self.nombre
+
+    nombre = models.CharField(max_length=255)
+    slug =  models.SlugField(blank=True, max_length=100)
+    biografia_corta = models.TextField(blank=True)
+    biografia_larga = RedactorField(blank=True)
+    email = models.EmailField(blank=True, null=True)
+    sitio = models.URLField(blank=True, null=True)
+    facebook = models.URLField(blank=True, null=True)
+    twitter = models.URLField(blank=True, null=True)
+    imagen = models.ImageField(upload_to='img-autores', blank=True, default=None)
+
+
 class Coleccion (models.Model):
 
     def __unicode__(self):
@@ -86,6 +102,7 @@ class Articulo (models.Model):
     permitir_comentarios=models.BooleanField(default=True)
     orden=models.IntegerField(blank=True, null=True)
     vistas=models.IntegerField(default=0)
+    autor=models.ForeignKey(Autor)
 
 
 class Link (models.Model):
