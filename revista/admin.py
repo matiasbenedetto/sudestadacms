@@ -24,7 +24,7 @@ class ArticuloModelAdmin(admin.ModelAdmin):
     }
 	#filter_horizontal =("secciones",)
 
-	list_display = ('titulo', 'edicion', 'publicado', 'visible_en_portada', 'principal', 'permitir_comentarios')
+	list_display = ('titulo', 'edicion',  'autor', 'publicado', 'visible_en_portada', 'principal', 'permitir_comentarios')
 	list_editable = ('publicado', 'visible_en_portada', 'principal', 'permitir_comentarios') 
 	search_fields = ('titulo',)
 	list_display_links = ('titulo',)
@@ -32,6 +32,13 @@ class ArticuloModelAdmin(admin.ModelAdmin):
 	inlines = [
         ArchivoInline,
     ]
+
+
+class AutorAdmin(admin.ModelAdmin):
+	model=Autor
+	list_display = ('nombre', 'sitio')
+	search_fields = ('nombre', 'email', 'sitio', 'facebook', 'twitter')
+	prepopulated_fields = {'slug': ('nombre',)}
 
 
 class LinkModelAdmin(SortableAdminMixin, admin.ModelAdmin):
@@ -69,6 +76,7 @@ class ColeccionAdmin (admin.ModelAdmin):
 admin.site.register(Articulo, ArticuloModelAdmin)
 admin.site.register(Edicion, EdicionAdmin)
 admin.site.register(Coleccion, ColeccionAdmin)
+admin.site.register(Autor, AutorAdmin)
 admin.site.register(Seccion, SeccionModelAdmin)
 admin.site.register(Link, LinkModelAdmin)
 admin.site.register(Archivo, ArchivoModelAdmin)
