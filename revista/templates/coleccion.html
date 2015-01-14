@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load staticfiles thumbnail %}
+
+{% block body_class %}coleccion{% endblock %}
+
+{% block extra_js %}
+	<script src="{% static 'js/libs/jquery.matchHeight.js' %}"></script>
+	<script src="{% static 'js/coleccion.js' %}"></script>
+{% endblock %}
+
+{% block contenido %}
+	<div class="row">
+		<div class="col-md-12">
+			<div class="encabezado">
+			<small>Colección</small>
+			<h1>{{coleccion.titulo}}</h2>
+			<p>{{coleccion.descripccion}}</p>
+		</div>
+		
+			<div class="row">
+				{% for edicion in ediciones %}
+					{% include 'edicion-listar-contenido.html' %}
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+{% endblock %}

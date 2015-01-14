@@ -108,3 +108,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 REDACTOR_OPTIONS = {'lang': 'en'}
 REDACTOR_UPLOAD = 'uploads/'
+
+
+
+try:
+    from settings_local import *
+except ImportError:
+    print u'File settings_local.py is not found. Continuing with production settings.'
