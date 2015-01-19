@@ -30,6 +30,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
+    'suit',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -61,6 +62,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.media",
     "django.core.context_processors.static",
     "django.core.context_processors.tz",
+    'django.core.context_processors.request',
     "django.contrib.messages.context_processors.messages",
     "revista.context_processors.secciones",
     "revista.context_processors.articulos_mas_vistos",
@@ -108,6 +110,12 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 REDACTOR_OPTIONS = {'lang': 'en'}
 REDACTOR_UPLOAD = 'uploads/'
+
+
+#http://django-suit.readthedocs.org/en/develop/configuration.html
+SUIT_CONFIG = {
+    'ADMIN_NAME': 'Revista Sudestada'
+}
 
 
 
