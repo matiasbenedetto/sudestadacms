@@ -36,7 +36,30 @@
 					</div>
 				</div>
 
+
+				{% if  articulo.autor %}
+					<div class="autor col-md-3">
+						<div class="row">
+							<div class="col-md-4">
+								<div class="contenedor-img">
+									{% thumbnail articulo.autor.imagen "100x100" crop="center" as im %}
+									    <img src="{{ im.url }}" alt="{{articulo.autor.nombre}}">
+									{% endthumbnail %}
+								</div>
+							</div>
+
+							<div class="col-md-8">
+								<small>Autor</small>
+								<h2>{{articulo.autor.nombre}}</h2>
+							</div>
+						</div>
+						<p>{{articulo.autor.biografia_corta}}</p>
+					</div>
+				{% endif %}
+
+
 				{% include "sidebar.html" %}
+				
 
 				<div class="comentarios col-md-9">
 					<h2>Comentarios</h2>
