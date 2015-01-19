@@ -8,8 +8,8 @@ body.articulo .articulos-relacionados .articulo{display:block;color:#000;padding
 body.articulo .articulos-relacionados .articulo h3{margin-top:5px}
 body.articulo .articulos-relacionados .articulo p{font-size:1.5rem}
 body.articulo .articulos-relacionados .articulo:hover{background-color:#000;color:#fff}
-body.articulo .autor{padding:20px;background-color:#eee}body.articulo .autor small{font-family:Arial,Helvetica,Sans,Sans-serif;text-transform:uppercase}
+body.articulo .autor{padding:20px;background-color:#eee;margin-bottom:20px}body.articulo .autor small{font-family:Arial,Helvetica,Sans,Sans-serif;text-transform:uppercase}
 body.articulo .autor h2{margin-top:0;margin-bottom:20px}
 body.articulo .autor p{font-family:Arial,Helvetica,Sans,Sans-serif;font-size:1.2rem}
 body.articulo .autor img{width:100%;border-radius:100px;margin-bottom:20px;border:3px solid #fff;box-shadow:0 5px 2px #aaa}
-body.articulo .autor:after{content:"";position:absolute;left:-15px;top:20px;border-top:15px solid transparent;border-right:15px solid #eee;border-bottom:15px solid transparent}
+body.articulo .autor:after{content:"";position:absolute;left:0;top:20px;border-top:15px solid transparent;border-right:15px solid #eee;border-bottom:15px solid transparent}
