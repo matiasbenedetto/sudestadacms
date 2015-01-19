@@ -6,6 +6,28 @@
 
 {% block body_class %}articulo{% endblock %}
 
+{% block extra_js %}
+	<script type="text/javascript">
+	//Codigo Shareaholic
+	//<![CDATA[
+	  (function() {
+	    var shr = document.createElement('script');
+	    shr.setAttribute('data-cfasync', 'false');
+	    shr.src = '//dsms0mj1bbhn4.cloudfront.net/assets/pub/shareaholic.js';
+	    shr.type = 'text/javascript'; shr.async = 'true';
+	    shr.onload = shr.onreadystatechange = function() {
+	      var rs = this.readyState;
+	      if (rs && rs != 'complete' && rs != 'loaded') return;
+	      var site_id = 'a726677ed1e074b0e4b01b9a45422b66';
+	      try { Shareaholic.init(site_id); } catch (e) {}
+	    };
+	    var s = document.getElementsByTagName('script')[0];
+	    s.parentNode.insertBefore(shr, s);
+	  })();
+	//]]>
+	</script>
+{% endblock %}
+
 {% block contenido %}
 	<div class="row">
 
@@ -18,7 +40,14 @@
 			<div class="row">
 				<div class="edicion col-md-2">
 					{% include 'edicion-sumario.html' %}
+
+					<div class="compartir">
+						<h3>Compartir Articulo</h3>
+						<div class='shareaholic-canvas clearfix' data-app='share_buttons' data-app-id='14920346'></div>
+					</div>
 				</div>
+
+				
 
 				<div class="cuerpo col-md-7">
 					{% if articulo.imagen|is_portrait %}
