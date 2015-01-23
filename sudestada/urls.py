@@ -17,6 +17,9 @@ urlpatterns = patterns('',
     url(r'^edicion/(?P<id_edicion>\d+)/(?P<slug>[-\w]+)/$', 'revista.views.edicion', name='edicion'),
     url(r'^coleccion/(?P<id_coleccion>\d+)/(?P<slug>[-\w]+)/$', 'revista.views.coleccion', name='coleccion'),
 
+
+    (r'^info/', include('django.contrib.flatpages.urls')),
+
 )
 
 if settings.DEBUG:

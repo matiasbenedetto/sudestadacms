@@ -37,6 +37,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'django.contrib.flatpages',
     'revista',
     'embed_video', # https://github.com/yetty/django-embed-video
     'sorl.thumbnail', #
@@ -72,6 +74,7 @@ ROOT_URLCONF = 'sudestada.urls'
 
 WSGI_APPLICATION = 'sudestada.wsgi.application'
 
+SITE_ID = 1
 
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
