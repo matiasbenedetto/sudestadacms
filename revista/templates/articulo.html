@@ -26,6 +26,19 @@
 	  })();
 	//]]>
 	</script>
+
+
+
+	<script>
+	//FACEBOOK SDK
+	(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&appId=864410493581694&version=v2.0";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
+	</script>
 {% endblock %}
 
 {% block contenido %}
@@ -50,20 +63,29 @@
 				
 
 				<div class="cuerpo col-md-7">
-					{% if articulo.imagen|is_portrait %}
-						{% thumbnail articulo.imagen  "500" upscale=True as im %}
-							<img src="{{ im.url }}" class="main-img-portait">
-						{% endthumbnail %}
-					{% else %}
-						{% thumbnail articulo.imagen  "800" upscale=True as im %}
-							<img src="{{ im.url }}" class="main-img">
-						{% endthumbnail %}
-					{% endif %}
+					<div>
+						{% if articulo.imagen|is_portrait %}
+							{% thumbnail articulo.imagen  "500" upscale=True as im %}
+								<img src="{{ im.url }}" class="main-img-portait">
+							{% endthumbnail %}
+						{% else %}
+							{% thumbnail articulo.imagen  "800" upscale=True as im %}
+								<img src="{{ im.url }}" class="main-img">
+							{% endthumbnail %}
+						{% endif %}
 
-					<div class="texto">
-						{{articulo.texto|safe}}
+						<div class="texto">
+							{{articulo.texto|safe}}
+						</div>
 					</div>
+
+					<div class="comentarios">
+						<h2>Comentarios</h2>
+						{% include "comentarios.html" %}
+					</div> 
 				</div>
+
+
 
 
 				{% if  articulo.autor %}
@@ -92,9 +114,7 @@
 				{% include "sidebar.html" %}
 				
 
-				<div class="comentarios col-md-9">
-					<h2>Comentarios</h2>
-				</div> 
+
 
 				<div class="articulos-relacionados col-md-9">
 					<h2>Articulos Relacionados</h2>
