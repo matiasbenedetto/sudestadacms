@@ -32,3 +32,8 @@ def coleccion (request, id_coleccion, slug):
 	ediciones=Edicion.objects.filter(coleccion=coleccion).order_by('numero').reverse()
 	return render_to_response("coleccion.html", locals(), context_instance=RequestContext(request))
 
+
+def comprar (request):
+
+	return render_to_response("comprar.html", locals(), context_instance=RequestContext(request))
+

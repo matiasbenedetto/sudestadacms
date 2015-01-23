@@ -7,6 +7,7 @@
 .edicion .coleccion{color:#aaa;margin-top:0}
 .edicion .sumario-titulo{margin-top:20px;font-family:Arial,Helvetica,Sans,Sans-serif;font-weight:bold;font-size:2rem}
 .edicion .sumario{margin:0;padding:0;padding-left:15px;font-size:1.3rem}.edicion .sumario a{color:#000}
+.edicion .btn{width:100%;white-space:normal !important;word-wrap:break-word}
 .edicion .articulo{padding-top:15px;padding-bottom:15px}.edicion .articulo img{width:100%;margin-bottom:20px}
 .edicion .articulo small{margin-top:10px}
 .edicion .articulo p{font-size:1.5rem}
@@ -16,4 +17,7 @@
 .edicion-listada h4{margin-top:0;color:#000;margin-bottom:5px}
 .edicion-listada h5{color:#666;margin:0}
 .edicion-listada img{width:100%}
+.edicion-listada .coleccion{margin-bottom:10px}
+.edicion-listada a.mismo-alto{display:block;margin-bottom:10px}
 .edicion-listada a:hover{text-decoration:none}
+.edicion-listada .btn{width:100%;white-space:normal !important;word-wrap:break-word}

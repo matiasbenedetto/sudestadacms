@@ -1,9 +1,30 @@
-{% load staticfiles %}
+{% load staticfiles flatpages %}
 
 <footer class="row">
-	<div class="col-md-3">
-		<img class="logo" src="{% static 'img/logo.png' %}"
+	<div class="col-md-3 logo">
+		<img class="img" src="{% static 'img/logo.png' %}">
+		<p>Revista de cultura, arte y sociedad</p>
 	</div>
+
+	<div class="columna col-md-3 col-md-offset-1">
+		<h3>Nosotros</h3>
+		<ul>
+			{% get_flatpages '/acerca/' as pages %}
+			{% for page in pages %}
+		        <li><a href="/info{{ page.url }}">{{ page.title }}</a></li>
+		    {% endfor %}
+		</ul>
+	</div>
+
+	<div class="columna col-md-3">
+		<h3>Redes Sociales</h3>
+		<ul>
+		    <li><a href="https://www.facebook.com/sudestadarevista">Facebook</a></li>
+		    <li><a href="https://twitter.com/revsudestada">Twitter</a></li>
+		</ul>
+	</div>
+
+
 
 
 </footer>
