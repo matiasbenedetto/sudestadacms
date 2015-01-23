@@ -1,6 +1,11 @@
 {% extends "base.html" %}
 {% load staticfiles thumbnail %}
 
+{% block extra_js %}
+	<script src="{% static 'js/libs/jquery.matchHeight.js' %}"></script>
+	<script src="{% static 'js/mismo-alto.js' %}"></script>
+{% endblock %}
+
 
 {% block body_class %}index{% endblock %}
 
