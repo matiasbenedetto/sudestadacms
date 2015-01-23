@@ -5,7 +5,20 @@ from django.contrib import admin
 from revista.models import *
 from adminsortable.admin import SortableAdminMixin
 from django.forms import CheckboxSelectMultiple
+from django.contrib.flatpages.admin import FlatPageAdmin, FlatpageForm
+from django.contrib.flatpages.models import FlatPage
+from suit_redactor.widgets import RedactorWidget
 
+
+class CustomFlatpageForm(FlatpageForm):
+    class Meta:
+        widgets = {
+            'content': RedactorWidget(editor_options={'lang': 'en'})
+        }
+
+
+class CustomFlatPageAdmin(FlatPageAdmin):
+    form = CustomFlatpageForm
 
 
 class ArchivoInline(admin.TabularInline):
@@ -72,6 +85,9 @@ class ColeccionAdmin (admin.ModelAdmin):
 	list_display=('titulo', 'visible', 'cantidad_de_ediciones')
 	search_fields = ('titulo',)
 
+
+admin.site.unregister(FlatPage)
+admin.site.register(FlatPage, CustomFlatPageAdmin)
 
 admin.site.register(Articulo, ArticuloModelAdmin)
 admin.site.register(Edicion, EdicionAdmin)

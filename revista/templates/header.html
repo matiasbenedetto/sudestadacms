@@ -1,14 +1,14 @@
-{% load staticfiles %}
+{% load staticfiles flatpages %}
 
 <header class="row">
 	<div class="col-md-3">
+
 		<ul>
 			<li><a href="/">Principal</a></li>
-			<li><a href="">Colectivo Editorial</a></li>
-			<li><a href="">Numeros Anteriores</a></li>
-			<li><a href="">Contacto</a></li>
-			<li><a href="">Suscripcción</a></li>
-			<li><a href="">Puntos de venta</a></li>
+			{% get_flatpages '/acerca/' as pages %}
+			{% for page in pages %}
+		        <li><a href="/info{{ page.url }}">{{ page.title }}</a></li>
+		    {% endfor %}
 		</ul>
 	</div>
 
