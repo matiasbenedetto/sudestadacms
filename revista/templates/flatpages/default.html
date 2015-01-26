@@ -4,7 +4,7 @@
 {% block titulo %}{{articulo.titulo}}{% endblock %}
 {% block descripccion %}{{articulo.bajada}}{% endblock %}
 
-{% block body_class %}flatpage{% endblock %}
+{% block body_class %}articulo{% endblock %}
 
 {% block extra_js %}
 	<script type="text/javascript">
@@ -45,17 +45,24 @@
 	<div class="row">
 
 			<div class="row">
-				<div class="cuerpo col-md-9">
-					<h1>{{ flatpage.title }}</h1>
+				<div class="col-md-9">
 
-					{{flatpage.content|safe}}
+					<div class="encabezado">
+						<h1>{{ flatpage.title }}</h1>
+					</div>
 
-					{% if flatpage.enable_comments %}
-						<div class="comentarios">
-							<h2>Comentarios</h2>
-							{% include "comentarios.html" %}
+					<div class="cuerpo">
+						<div class="texto">
+							{{flatpage.content|safe}}
 						</div>
-					{% endif %}
+
+						{% if flatpage.enable_comments %}
+							<div class="comentarios">
+								<h2>Comentarios</h2>
+								{% include "comentarios.html" %}
+							</div>
+						{% endif %}
+					</div>
 
 
 				</div>
