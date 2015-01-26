@@ -16,6 +16,7 @@ urlpatterns = patterns('',
     url(r'^articulo/(?P<id_articulo>\d+)/(?P<slug>[-\w]+)/$', 'revista.views.articulo', name='articulo'),
     url(r'^edicion/(?P<id_edicion>\d+)/(?P<slug>[-\w]+)/$', 'revista.views.edicion', name='edicion'),
     url(r'^coleccion/(?P<id_coleccion>\d+)/(?P<slug>[-\w]+)/$', 'revista.views.coleccion', name='coleccion'),
+    url(r'^seccion/(?P<slug>[-\w]+)/$', 'revista.views.seccion', name='seccion'),
 
     url(r'^comprar/$', 'revista.views.comprar', name='comprar'),
 

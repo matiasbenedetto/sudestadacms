@@ -23,13 +23,19 @@
 	<div class="row">
 
 		<div class="numeros-anteriores col-md-9">
-			<h1>Números Anteriores</h1>
+			<a href="/coleccion/2/revista/">
+				<h1>Números Anteriores <span class="glyphicon glyphicon-th pull-right"></span></h1>
+			</a>
+			
 			<ul class="row ediciones-anteriores">
 				{% with ediciones=ediciones %} 
 					{% for edicion in ediciones %}
 						{% include 'edicion-listar-contenido.html' %}					
 					{% endfor %}
 				{% endwith %}
+
+				<a class="col-md-12" id="todas-las-ediciones" href="/coleccion/2/revista/"><span class="glyphicon glyphicon-th"></span> Ver todos los numeros de la revista...</a>
+				
 			</ul>
 
 
