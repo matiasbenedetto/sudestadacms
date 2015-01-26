@@ -30,7 +30,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
-    'suit_redactor', #http://django-suit.readthedocs.org/
+    'revista',
+    'suit_redactor', # http://django-suit.readthedocs.org/
     'suit',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -40,7 +41,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'django.contrib.flatpages',
-    'revista',
+    'debug_toolbar', # http://django-debug-toolbar.readthedocs.org/
     'embed_video', # https://github.com/yetty/django-embed-video
     'sorl.thumbnail', #
     'adminsortable', # https://github.com/jrief/django-admin-sortable2
