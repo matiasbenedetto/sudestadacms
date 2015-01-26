@@ -30,6 +30,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
+    'suit_redactor', #http://django-suit.readthedocs.org/
     'suit',
     'django.contrib.admin',
     'django.contrib.auth',

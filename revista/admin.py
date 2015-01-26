@@ -13,7 +13,7 @@ from suit_redactor.widgets import RedactorWidget
 class CustomFlatpageForm(FlatpageForm):
     class Meta:
         widgets = {
-            'content': RedactorWidget(editor_options={'lang': 'en'})
+            'content': RedactorWidget(editor_options={'lang': 'es'})
         }
 
 
