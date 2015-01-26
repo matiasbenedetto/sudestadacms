@@ -41,7 +41,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'django.contrib.flatpages',
-    'debug_toolbar', # http://django-debug-toolbar.readthedocs.org/
+    #'debug_toolbar', # http://django-debug-toolbar.readthedocs.org/
     'embed_video', # https://github.com/yetty/django-embed-video
     'sorl.thumbnail', #
     'adminsortable', # https://github.com/jrief/django-admin-sortable2
@@ -102,6 +102,8 @@ USE_L10N = True
 USE_TZ = True
 
 INTERNAL_IPS = ('127.0.0.1',)
+
+ALLOWED_HOSTS = ("localhost", "revistasudestada.com.ar")
 
 
 # Static files (CSS, JavaScript, Images)

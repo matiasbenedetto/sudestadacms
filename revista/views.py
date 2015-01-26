@@ -1,4 +1,5 @@
-from django.shortcuts import render, render_to_response
+from django.shortcuts import render, render_to_response, get_object_or_404
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.template import RequestContext
 from revista.models import *
 
@@ -27,7 +28,7 @@ def edicion (request, id_edicion, slug):
 	return render_to_response("edicion.html", locals(), context_instance=RequestContext(request))
 
 
-def coleccion (request, id_coleccion, slug):
+def coleccion (request, id_coleccion=None, slug=None):
 	coleccion=Coleccion.objects.get(id=id_coleccion, slug=slug)
 	ediciones=Edicion.objects.filter(coleccion=coleccion).order_by('numero').reverse()
 	return render_to_response("coleccion.html", locals(), context_instance=RequestContext(request))
@@ -36,4 +37,22 @@ def coleccion (request, id_coleccion, slug):
 def comprar (request):
 
 	return render_to_response("comprar.html", locals(), context_instance=RequestContext(request))
+
+
+def seccion (request, slug):
+	seccion=get_object_or_404(Seccion, slug=slug)
+	articulos_list = seccion.articulo_set.filter(publicado=True)
+
+	paginator = Paginator(articulos_list, 3)
+	page = request.GET.get('pagina')
+	try:
+		articulos = paginator.page(page)
+	except PageNotAnInteger:
+		# If page is not an integer, deliver first page.
+		articulos = paginator.page(1)
+	except EmptyPage:
+		# If page is out of range (e.g. 9999), deliver last page of results.
+		articulos = paginator.page(paginator.num_pages)
+
+	return render_to_response("seccion.html", locals(), context_instance=RequestContext(request))
 

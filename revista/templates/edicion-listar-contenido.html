@@ -8,8 +8,8 @@
 		<p><b>N° {{edicion.numero}}</b></p>
 		<h4>{{edicion.titulo}}</h4>
 		{% if edicion.especial %}
-			<a href="/coleccion/{{edicion.coleccion.id}}/{{edicion.coleccion.slug}}/">
-				<h5 class="coleccion">{{edicion.coleccion.titulo}}</h5>
+			<a class="coleccion" href="/coleccion/{{edicion.coleccion.id}}/{{edicion.coleccion.slug}}/">
+				<h5><span class="glyphicon glyphicon-th"></span> {{edicion.coleccion.titulo}}</h5>
 			</a>
 		{% endif %}
 	</a>

@@ -11,7 +11,7 @@
 					{% for articulo in edicion.articulos %}
 
 						{% if forloop.counter == 1 %}
-							<div class="articulo col-md-7 mismo-alto">
+							<div class="articulo-listado col-md-7 mismo-alto">
 								<a href="/articulo/{{articulo.id}}/{{articulo.slug}}/">
 									<small>{{articulo.volanta}}</small>
 									<h1>{{articulo.titulo}}</h1>
@@ -24,7 +24,7 @@
 						{% endif %}
 
 						{% if forloop.counter == 2 %}
-							<div class="articulo col-md-5 mismo-alto">
+							<div class="articulo-listado col-md-5 mismo-alto">
 								<a href="/articulo/{{articulo.id}}/{{articulo.slug}}/">
 									<small>{{articulo.volanta}}</small>
 									<h1>{{articulo.titulo}}</h1>
@@ -37,7 +37,7 @@
 						{% endif %}
 
 						{% if forloop.counter >= 3 %}
-							<div class="articulo col-md-4 mismo-alto">
+							<div class="articulo-listado col-md-4 mismo-alto">
 								<a href="/articulo/{{articulo.id}}/{{articulo.slug}}/">
 									<small>{{articulo.volanta}}</small>
 									<h3>{{articulo.titulo}}</h3>

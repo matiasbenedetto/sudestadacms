@@ -6,3 +6,5 @@ DATABASES = {
         'PASSWORD': 'guillon',
     }
 }
+
+DEBUG= True
