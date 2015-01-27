@@ -1,4 +1,4 @@
 header{font-family:'IM Fell DW Pica',serif;color:#333;padding-top:20px;margin-bottom:20px}header .logo{max-width:100%}
 header ul{list-style:none;margin:0;padding:0}header ul a{color:#333}
 header #secciones{width:100%;text-align:center;margin-top:10px;border-top:1px solid #eee;border-bottom:1px solid #eee}header #secciones li{display:inline-block;padding:10px}
-header .form input{padding:10px;padding-top:0;margin-top:80px;background-color:#fff;border:1px solid #aaa;border-radius:3px;font-family:Arial,Helvetica,Sans,Sans-serif}
+header .form{width:100%}header .form input{padding-top:0;margin-top:80px;background-color:#fff;border:1px solid #aaa;border-radius:3px;font-family:Arial,Helvetica,Sans,Sans-serif;font-size:1.2rem;padding:10px;width:100%}
