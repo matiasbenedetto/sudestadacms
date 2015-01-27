@@ -18,7 +18,8 @@
 
 	<div class="col-md-3">
 		<p>Revista de Cultura, Política y Sociedad</p>
-		<form class="form" id="buscar" action="" method="POST">
+		<form class="form" id="buscar" action="/buscar/" method="POST">
+			{% csrf_token %}
 			<input type="text" placeholder="Buscar...">
 		</form>
 	</div>
