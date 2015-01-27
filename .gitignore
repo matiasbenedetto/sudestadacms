@@ -3,5 +3,5 @@
 media/*
 static/*
 *.pyc
-sudestada/settings_local.py
-sudestada/settings_local.pyc
+settings_local.*
+settings_local.*
