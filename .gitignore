@@ -3,3 +3,5 @@
 media/*
 static/*
 *.pyc
+settings_local.py
+settings_local.pyc
