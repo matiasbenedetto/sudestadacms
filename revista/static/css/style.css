@@ -1023,10 +1023,10 @@ button.close{-webkit-appearance:none;padding:0;cursor:pointer;background:transpa
 @media print{.visible-print-inline-block{display:inline-block !important}}@media print{.hidden-print{display:none !important}}header{font-family:'IM Fell DW Pica',serif;color:#333;padding-top:20px;margin-bottom:20px}header .logo{max-width:100%}
 header ul{list-style:none;margin:0;padding:0}header ul a{color:#333}
 header #secciones{width:100%;text-align:center;margin-top:10px;border-top:1px solid #eee;border-bottom:1px solid #eee}header #secciones li{display:inline-block;padding:10px}
-header form input{padding:10px;padding-top:0;margin-top:80px}
+header .form{width:100%}header .form input{padding-top:0;margin-top:80px;background-color:#fff;border:1px solid #aaa;border-radius:3px;font-family:Arial,Helvetica,Sans,Sans-serif;font-size:1.2rem;padding:10px;width:100%}
 footer{margin-top:20px;padding-top:40px;padding-bottom:40px;border-top:1px solid #aaa}footer .logo{text-align:center}footer .logo .img{width:100%;margin-bottom:5px}
 footer .columna h3{margin-top:0}
-footer .columna ul{list-style:none;margin:0;padding:0;font-family:'IM Fell DW Pica',serif;color:#333;padding-top:5px;margin-bottom:20px}footer .columna ul a{color:#333}
+footer .columna ul{list-style:none;margin:0;padding:0;font-family:'IM Fell DW Pica',serif;color:#333;padding-top:5px;margin-bottom:20px}footer .columna ul a{color:#333}footer .columna ul a:hover{color:#ec971f}
 footer #desarrollo{font-family:Arial,Helvetica,Sans,Sans-serif;font-size:1.1rem}
 .index header{margin-bottom:0}
 .index .ediciones-anteriores{background-color:#eee;padding:0;margin-bottom:40px}
@@ -1036,8 +1036,9 @@ footer #desarrollo{font-family:Arial,Helvetica,Sans,Sans-serif;font-size:1.1rem}
 .sidebar h4:after{content:"";position:absolute;right:0;top:0;border-top:15px solid transparent;border-right:15px solid #fff;border-bottom:15px solid transparent}
 .sidebar .bloque{margin-bottom:20px}
 .sidebar .banner img{width:100%}
-.sidebar .articulos{margin:0;list-style:none;padding:0}.sidebar .articulos h3{margin-bottom:0;margin-top:0}
-.sidebar .articulos a:hover{text-decoration:none}
+.sidebar .articulos{margin:0;list-style:none;padding:0}.sidebar .articulos h3{margin-bottom:0;margin-top:0;color:#333}
+.sidebar .articulos small{color:#666}
+.sidebar .articulos a:hover{text-decoration:none}.sidebar .articulos a:hover h3{color:#ec971f}
 .sidebar .articulos .articulo{margin-bottom:5px;display:block}
 body.articulo .encabezado h1{margin-top:0;font-size:5.5rem}
 body.articulo .encabezado p{font-size:2rem;margin-bottom:30px}
@@ -1065,9 +1066,6 @@ body.articulo .comentarios{margin-top:30px;padding-top:30px;margin-bottom:30px;b
 .articulo-listado:hover{background-color:#000}.articulo-listado:hover a{color:#ec971f}
 .articulo-listado:hover img{filter:url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");filter:#808080;-webkit-filter:grayscale(100%);opacity:.85}
 .edicion{background-color:#eee}.edicion .tapa{width:100%}
-.edicion h1,.edicion h2,.edicion h3{margin-top:5px}
-.edicion a{color:#000}
-.edicion a:hover{text-decoration:none}
 .edicion .id-edicion{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;background-color:#000;color:#eee;width:125%;margin-left:-25%;text-align:right;padding-right:10px;padding-top:5px;padding-bottom:5px;margin-top:20px}
 .edicion h2{margin-bottom:0}
 .edicion .coleccion{color:#aaa;margin-top:0}
@@ -1075,7 +1073,7 @@ body.articulo .comentarios{margin-top:30px;padding-top:30px;margin-bottom:30px;b
 .edicion .sumario{margin:0;padding:0;padding-left:15px;font-size:1.3rem}.edicion .sumario a{color:#000}
 .edicion .sumario a:hover{color:#ec971f}
 .edicion .btn{width:100%;white-space:normal !important;word-wrap:break-word}
-.edicion-listada{padding-top:20px;padding-bottom:20px}.edicion-listada:hover{background-color:#000}.edicion-listada:hover img{filter:url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");filter:#808080;-webkit-filter:grayscale(100%);opacity:.85}
+.edicion-listada{padding-top:20px;padding-bottom:20px;list-style:none}.edicion-listada:hover{background-color:#000}.edicion-listada:hover img{filter:url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");filter:#808080;-webkit-filter:grayscale(100%);opacity:.85}
 .edicion-listada:hover p,.edicion-listada:hover h4{color:#ec971f}
 .edicion-listada p{font-family:Arial,Helvetica,Sans,Sans-serif;margin-top:10px;margin-bottom:0;font-size:1.2rem;color:#000}
 .edicion-listada h4{margin-top:0;color:#000;margin-bottom:5px}
@@ -1088,8 +1086,9 @@ body.articulo .comentarios{margin-top:30px;padding-top:30px;margin-bottom:30px;b
 .coleccion .encabezado h1{margin-top:0;font-size:5.5rem}
 .coleccion .encabezado p{font-size:2rem;margin-bottom:30px}
 .flatpage .cuerpo h1{margin-bottom:60px;font-size:6rem}
-.seccion .encabezado h1{margin-top:0;font-size:5.5rem}
+.seccion .encabezado{border-bottom:1px solid #eee;padding-bottom:20px;margin-bottom:20px}.seccion .encabezado h1{margin-top:0;font-size:5.5rem}
 .seccion .encabezado p{font-size:2rem;margin-bottom:30px}
+.pags{text-align:center}.pags .pagination{margin-top:0}.pags .pagination a{color:#ec971f !important}
 @font-face{font-family:'bebas_thin';src:url('/static/fonts/bebas/bebasneue_thin-webfont.eot');src:url('/static/fonts/bebas/bebasneue_thin-webfont.eot?#iefix') format('embedded-opentype'),url('/static/fonts/bebas/bebasneue_thin-webfont.woff2') format('woff2'),url('/static/fonts/bebas/bebasneue_thin-webfont.woff') format('woff'),url('/static/fonts/bebas/bebasneue_thin-webfont.ttf') format('truetype'),url('/static/fonts/bebas/bebasneue_thin-webfont.svg#bebas_neuethin') format('svg');font-weight:normal;font-style:normal}@font-face{font-family:'bebas_regular';src:url('/static/fonts/bebas/bebasneue_regular-webfont.eot');src:url('/static/fonts/bebas/bebasneue_regular-webfont.eot?#iefix') format('embedded-opentype'),url('/static/fonts/bebas/bebasneue_regular-webfont.woff2') format('woff2'),url('/static/fonts/bebas/bebasneue_regular-webfont.woff') format('woff'),url('/static/fonts/bebas/bebasneue_regular-webfont.ttf') format('truetype'),url('/static/fonts/bebas/bebasneue_regular-webfont.svg#bebas_neue_regularregular') format('svg');font-weight:normal;font-style:normal}@font-face{font-family:'bebas_light';src:url('/static/fonts/bebas/bebasneue_light-webfont.eot');src:url('/static/fonts/bebas/bebasneue_light-webfont.eot?#iefix') format('embedded-opentype'),url('/static/fonts/bebas/bebasneue_light-webfont.woff2') format('woff2'),url('/static/fonts/bebas/bebasneue_light-webfont.woff') format('woff'),url('/static/fonts/bebas/bebasneue_light-webfont.ttf') format('truetype'),url('/static/fonts/bebas/bebasneue_light-webfont.svg#bebas_neuelight') format('svg');font-weight:normal;font-style:normal}@font-face{font-family:'bebas_bold';src:url('/static/fonts/bebas/bebasneue_bold-webfont.eot');src:url('/static/fonts/bebas/bebasneue_bold-webfont.eot?#iefix') format('embedded-opentype'),url('/static/fonts/bebas/bebasneue_bold-webfont.woff2') format('woff2'),url('/static/fonts/bebas/bebasneue_bold-webfont.woff') format('woff'),url('/static/fonts/bebas/bebasneue_bold-webfont.ttf') format('truetype'),url('/static/fonts/bebas/bebasneue_bold-webfont.svg#bebas_neuebold') format('svg');font-weight:normal;font-style:normal}@font-face{font-family:'bebas_book';src:url('/static/fonts/bebas/bebasneue_book-webfont.eot');src:url('/static/fonts/bebas/bebasneue_book-webfont.eot?#iefix') format('embedded-opentype'),url('/static/fonts/bebas/bebasneue_book-webfont.woff2') format('woff2'),url('/static/fonts/bebas/bebasneue_book-webfont.woff') format('woff'),url('/static/fonts/bebas/bebasneue_book-webfont.ttf') format('truetype'),url('/static/fonts/bebas/bebasneue_book-webfont.svg#bebas_neuebook') format('svg');font-weight:normal;font-style:normal}body{font-size:16px}
 h1,h2,h3,h4{font-family:bebas_bold}
 small{font-family:'IM Fell DW Pica',serif}
