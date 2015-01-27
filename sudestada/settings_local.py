@@ -7,4 +7,6 @@ DATABASES = {
     }
 }
 
+
+
 DEBUG= True
