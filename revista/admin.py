@@ -37,10 +37,10 @@ class ArticuloModelAdmin(admin.ModelAdmin):
     }
 	#filter_horizontal =("secciones",)
 
-	list_display = ('titulo', 'edicion',  'autor', 'publicado', 'visible_en_portada', 'principal', 'permitir_comentarios')
+	list_display = ('thumb', 'titulo', 'edicion',  'autor', 'publicado', 'visible_en_portada', 'principal', 'permitir_comentarios')
 	list_editable = ('publicado', 'visible_en_portada', 'principal', 'permitir_comentarios') 
 	search_fields = ('titulo',)
-	list_display_links = ('titulo',)
+	list_display_links = ('titulo', 'thumb')
 	prepopulated_fields = {'slug': ('titulo',)}
 	inlines = [
         ArchivoInline,
@@ -49,7 +49,8 @@ class ArticuloModelAdmin(admin.ModelAdmin):
 
 class AutorAdmin(admin.ModelAdmin):
 	model=Autor
-	list_display = ('nombre', 'sitio')
+	list_display = ('thumb', 'nombre', 'sitio')
+	list_display_links = ('thumb', 'nombre')
 	search_fields = ('nombre', 'email', 'sitio', 'facebook', 'twitter')
 	prepopulated_fields = {'slug': ('nombre',)}
 
@@ -75,7 +76,8 @@ class SeccionModelAdmin(SortableAdminMixin, admin.ModelAdmin):
 class EdicionAdmin (admin.ModelAdmin):
 	model=Edicion
 	prepopulated_fields = {'slug': ('titulo',)}
-	list_display=('titulo', 'coleccion', 'numero', 'especial', 'visible', 'cantidad_de_articulos')
+	list_display=('thumb', 'titulo', 'coleccion', 'numero', 'especial', 'visible', 'cantidad_de_articulos')
+	list_display_links = ('titulo', 'thumb')
 	search_fields = ('titulo',)
 
 
