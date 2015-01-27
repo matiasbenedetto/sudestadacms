@@ -4,6 +4,7 @@
 from django.db import models
 from redactor.fields import RedactorField
 from embed_video.fields import EmbedVideoField
+from sorl.thumbnail import get_thumbnail
 
 
 class Seccion (models.Model):
@@ -41,6 +42,14 @@ class Autor (models.Model):
     facebook = models.URLField(blank=True, null=True)
     twitter = models.URLField(blank=True, null=True)
     imagen = models.ImageField(upload_to='img-autores', blank=True, default=None)
+
+    def thumb(self):
+        if self.imagen:
+            img = get_thumbnail(self.imagen, '80x80', crop='center', quality=99)
+            return '<img src="%s" width="80" height="80" />' % (img.url)
+        else:
+            return None
+    thumb.allow_tags = True
 
 
 class Coleccion (models.Model):
@@ -81,6 +90,14 @@ class Edicion (models.Model):
     def cantidad_de_articulos (self):
         return Articulo.objects.filter(edicion=self, publicado=True).count()
 
+    def thumb(self):
+        if self.imagen:
+            img = get_thumbnail(self.imagen, '90x120', crop='center', quality=99)
+            return '<img src="%s" width="90" height="120" />' % (img.url)
+        else:
+            return None
+    thumb.allow_tags = True
+
 
 class Articulo (models.Model):
     def __unicode__(self):
@@ -103,6 +120,14 @@ class Articulo (models.Model):
     orden=models.IntegerField(blank=True, null=True)
     vistas=models.IntegerField(default=0)
     autor=models.ForeignKey(Autor)
+
+    def thumb(self):
+        if self.imagen:
+            img = get_thumbnail(self.imagen, '150x100', crop='center', quality=99)
+            return '<img src="%s" width="100" height="100" />' % (img.url)
+        else:
+            return None
+    thumb.allow_tags = True
 
 
 class Link (models.Model):
