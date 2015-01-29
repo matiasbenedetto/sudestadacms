@@ -12,6 +12,8 @@
 	<link rel="image_src" href="{{ediciones.0.imagen.url}}" / >
 {% endblock %}
 
+{% block titulo %}Colección - {{coleccion.titulo}}{% endblock %}
+{% block descripccion %}{% for edicion in coleccion.edicion_set.all %}.{{edicion.titulo}} {% endfor %}{% endblock %}
 
 {% block contenido %}
 	<div class="row">

@@ -6,6 +6,9 @@
 	<script src="{% static 'js/mismo-alto.js' %}"></script>
 {% endblock %}
 
+{% block titulo %}{{edicion.titulo}} - {{edicion.coleccion.titulo}} - N°{{edicion.numero}}{% endblock %}
+{% block descripccion %}{% for articulo in edicion.articulo_set.all %}.{{articulo.titulo}} {% endfor %}{% endblock %}
+
 {% block share-data %}
 	<link rel="image_src" href="{{edicion.imagen.url}}" / >
 {% endblock %}
