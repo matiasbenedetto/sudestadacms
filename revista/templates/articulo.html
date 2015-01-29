@@ -6,6 +6,10 @@
 
 {% block body_class %}articulo{% endblock %}
 
+{% block share-data %}
+	<link rel="image_src" href="{{articulo.imagen.url}}" / >
+{% endblock %}
+
 {% block extra_js %}
 	<script type="text/javascript">
 	//Codigo Shareaholic
