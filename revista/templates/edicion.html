@@ -10,7 +10,10 @@
 {% block descripccion %}{% for articulo in edicion.articulo_set.all %}.{{articulo.titulo}} {% endfor %}{% endblock %}
 
 {% block share-data %}
-	<link rel="image_src" href="{{edicion.imagen.url}}" / >
+	<!-- for Facebook -->          
+	<meta property="og:title" content="{{edicion.titulo}} - {{edicion.coleccion.titulo}} - N°{{edicion.numero}} - Sudestada" />
+	<meta property="og:image" content="{{edicion.imagen.url}}" />
+	<meta property="og:description" content="{% for articulo in edicion.articulo_set.all %}.{{articulo.titulo}} {% endfor %}" />
 {% endblock %}
 
 

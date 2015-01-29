@@ -8,12 +8,16 @@
 	<script src="{% static 'js/mismo-alto.js' %}"></script>
 {% endblock %}
 
-{% block share-data %}
-	<link rel="image_src" href="{{ediciones.0.imagen.url}}" / >
-{% endblock %}
 
 {% block titulo %}Colección - {{coleccion.titulo}}{% endblock %}
 {% block descripccion %}{% for edicion in coleccion.edicion_set.all %}.{{edicion.titulo}} {% endfor %}{% endblock %}
+
+{% block share-data %}
+	<!-- for Facebook -->          
+	<meta property="og:title" content="Colección - {{coleccion.titulo}}" />
+	<meta property="og:image" content="{{ediciones.0.imagen.url}}" />
+	<meta property="og:description" content="{% for edicion in coleccion.edicion_set.all %}.{{edicion.titulo}} {% endfor %}" />
+{% endblock %}
 
 {% block contenido %}
 	<div class="row">
