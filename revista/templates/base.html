@@ -13,6 +13,10 @@
 
 		<title>{% block titulo %}Revista Sudestada{% endblock %}</title>
 		<meta name="description" content="{% block descripccion %}Revista sobre Cultura, Arte y Sociedad{% endblock %}">
+
+		{% block share-data %}
+			<link rel="image_src" href="/static/img/logo.png" / >
+		{% endblock %}
 	</head>
 
 	<body class="{% block body_class %}{% endblock %}">

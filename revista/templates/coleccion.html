@@ -8,6 +8,11 @@
 	<script src="{% static 'js/mismo-alto.js' %}"></script>
 {% endblock %}
 
+{% block share-data %}
+	<link rel="image_src" href="{{ediciones.0.imagen.url}}" / >
+{% endblock %}
+
+
 {% block contenido %}
 	<div class="row">
 		<div class="col-md-12">

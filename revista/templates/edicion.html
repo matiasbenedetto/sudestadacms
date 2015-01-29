@@ -6,6 +6,10 @@
 	<script src="{% static 'js/mismo-alto.js' %}"></script>
 {% endblock %}
 
+{% block share-data %}
+	<link rel="image_src" href="{{edicion.imagen.url}}" / >
+{% endblock %}
+
 
 {% block body_class %}index{% endblock %}
 
