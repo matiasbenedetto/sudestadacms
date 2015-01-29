@@ -15,7 +15,10 @@
 		<meta name="description" content="{% block descripccion %}Revista sobre Cultura, Arte y Sociedad{% endblock %}">
 
 		{% block share-data %}
-			<link rel="image_src" href="/static/img/logo.png" / >
+			<!-- for Facebook -->          
+			<meta property="og:title" content="Revista Sudestada" />
+			<meta property="og:image" content="/static/img/logo.png" />
+			<meta property="og:description" content="Revista sobre Cultura, Arte y Sociedad" />
 		{% endblock %}
 	</head>
 
