@@ -10,7 +10,7 @@
 	<!-- for Facebook -->          
 	<meta property="og:title" content="{{articulo.titulo}} - Sudestada" />
 	<meta property="og:type" content="article" />
-	<meta property="og:image" content="{{ request.META.HTTP_HOST }}{{articulo.imagen.url}}" />
+	<meta property="og:image" content="http://{{ request.META.HTTP_HOST }}{{articulo.imagen.url}}" />
 	<meta property="og:description" content="{{articulo.bajada}}" />
 {% endblock %}
 
