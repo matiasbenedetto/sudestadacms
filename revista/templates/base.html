@@ -17,7 +17,7 @@
 		{% block share-data %}
 			<!-- for Facebook -->          
 			<meta property="og:title" content="Revista Sudestada" />
-			<meta property="og:image" content="/static/img/logo.png" />
+			<meta property="og:image" content="{{ request.META.HTTP_HOST }}/static/img/logo.png" />
 			<meta property="og:description" content="Revista sobre Cultura, Arte y Sociedad" />
 		{% endblock %}
 	</head>
