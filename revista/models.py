@@ -8,8 +8,9 @@ from sorl.thumbnail import get_thumbnail
 
 
 class Seccion (models.Model):
+    
     def __unicode__(self):
-        return self.titulo
+        return unicode(self.titulo) or u''
     
     titulo=models.CharField(max_length=255)
     slug =  models.SlugField(max_length=100, default="")
@@ -31,7 +32,7 @@ class Seccion (models.Model):
 class Autor (models.Model):
 
     def __unicode__(self):
-        return self.nombre
+        return unicode(self.nombre) or u''
 
     nombre = models.CharField(max_length=255)
     slug =  models.SlugField(blank=True, max_length=100)
@@ -55,7 +56,7 @@ class Autor (models.Model):
 class Coleccion (models.Model):
 
     def __unicode__(self):
-        return self.titulo
+        return unicode(self.titulo) or u''
 
     titulo=models.CharField(max_length=255, blank=True, null=True, default=None)
     slug =  models.SlugField(max_length=100, default="")
@@ -73,7 +74,7 @@ class Coleccion (models.Model):
 class Edicion (models.Model):
 
     def __unicode__(self):
-        return self.titulo
+        return unicode(self.titulo) or u''
 
     titulo=models.CharField(max_length=255, blank=True, null=True, default=None)
     slug =  models.SlugField(max_length=100, default="")
@@ -101,7 +102,8 @@ class Edicion (models.Model):
 
 class Articulo (models.Model):
     def __unicode__(self):
-        return self.titulo
+        return unicode(self.titulo) or u''
+
 
     publicado=models.BooleanField(default=False)
     visible_en_portada=models.BooleanField(default=False)
@@ -119,7 +121,7 @@ class Articulo (models.Model):
     permitir_comentarios=models.BooleanField(default=True)
     orden=models.IntegerField(blank=True, null=True)
     vistas=models.IntegerField(default=0)
-    autor=models.ForeignKey(Autor)
+    autor=models.ManyToManyField(Autor)
 
     def thumb(self):
         if self.imagen:
