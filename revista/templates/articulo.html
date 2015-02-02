@@ -62,7 +62,7 @@
 						
 
 						<div class="texto">
-							{{articulo.texto|safe}}
+							{{articulo.texto|safe|linebreaks}}
 						</div>
 					</div>
 
@@ -75,25 +75,27 @@
 
 
 
-				{% if  articulo.autor %}
+				{% if  articulo.autor.all %}
 					<div class="col-md-3">
-						<div class="autor">
-							<div class="row">
-								<div class="col-md-4">
-									<div class="contenedor-img">
-										{% thumbnail articulo.autor.imagen "100x100" crop="center" as im %}
-										    <img src="{{ im.url }}" alt="{{articulo.autor.nombre}}">
-										{% endthumbnail %}
+						{% for autor in articulo.autor.all %}
+							<div class="autor">
+								<div class="row">
+									<div class="col-md-4">
+										<div class="contenedor-img">
+											{% thumbnail autor.imagen "100x100" crop="center" as im %}
+											    <img src="{{ im.url }}" alt="{{autor.nombre}}">
+											{% endthumbnail %}
+										</div>
+									</div>
+
+									<div class="col-md-8">
+										<small>Autor</small>
+										<h2>{{autor.nombre}}</h2>
 									</div>
 								</div>
-
-								<div class="col-md-8">
-									<small>Autor</small>
-									<h2>{{articulo.autor.nombre}}</h2>
-								</div>
+								<p>{{autor.biografia_corta}}</p>
 							</div>
-							<p>{{articulo.autor.biografia_corta}}</p>
-						</div>
+						{% endfor %}
 					</div>
 				{% endif %}
 
