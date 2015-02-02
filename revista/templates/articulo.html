@@ -59,15 +59,7 @@
 
 				<div class="cuerpo col-md-7">
 					<div>
-						{% if articulo.imagen|is_portrait %}
-							{% thumbnail articulo.imagen  "500" upscale=True as im %}
-								<img src="{{ im.url }}" class="main-img-portait">
-							{% endthumbnail %}
-						{% else %}
-							{% thumbnail articulo.imagen  "800" upscale=True as im %}
-								<img src="{{ im.url }}" class="main-img">
-							{% endthumbnail %}
-						{% endif %}
+						
 
 						<div class="texto">
 							{{articulo.texto|safe}}

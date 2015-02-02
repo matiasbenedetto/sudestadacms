@@ -37,7 +37,7 @@ class ArticuloModelAdmin(admin.ModelAdmin):
     }
 	#filter_horizontal =("secciones",)
 
-	list_display = ('thumb', 'titulo', 'edicion',  'autor', 'publicado', 'visible_en_portada', 'principal', 'permitir_comentarios')
+	list_display = ('thumb', 'titulo', 'edicion',  'publicado', 'visible_en_portada', 'principal', 'permitir_comentarios')
 	list_editable = ('publicado', 'visible_en_portada', 'principal', 'permitir_comentarios') 
 	search_fields = ('titulo',)
 	list_display_links = ('titulo', 'thumb')
