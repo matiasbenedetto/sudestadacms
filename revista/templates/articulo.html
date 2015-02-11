@@ -10,7 +10,9 @@
 	<!-- for Facebook -->          
 	<meta property="og:title" content="{{articulo.titulo}} - Sudestada" />
 	<meta property="og:type" content="article" />
+	{% if articulo.imagen %}
 	<meta property="og:image" content="http://{{ request.META.HTTP_HOST }}{{articulo.imagen.url}}" />
+	{% endif %}
 	<meta property="og:description" content="{{articulo.bajada}}" />
 {% endblock %}
 
@@ -61,11 +63,11 @@
 					<div>
 						<div>
 							{% if articulo.imagen|is_portrait %}
-								{% thumbnail articulo.imagen  "500" upscale=True as im %}
+								{% thumbnail articulo.imagen  "500" upscale=False as im %}
 									<img src="{{ im.url }}" class="main-img-portait">
 								{% endthumbnail %}
 							{% else %}
-								{% thumbnail articulo.imagen  "800" upscale=True as im %}
+								{% thumbnail articulo.imagen  "800" upscale=False as im %}
 									<img src="{{ im.url }}" class="main-img">
 								{% endthumbnail %}
 							{% endif %}
@@ -121,9 +123,13 @@
 						{% for articulo in articulos_relacionados %}
 							<a href="/articulo/{{articulo.id}}/{{articulo.slug}}/">
 								<div class="articulo col-md-3">
-									{% thumbnail articulo.imagen "200x200" crop="center" as im %}
-									    <img src="{{ im.url }}" alt="{{articulo.titulo}}">
-									{% endthumbnail %}
+									{% if articulo.imagen %}
+										{% thumbnail articulo.imagen "200x200" crop="center" as im %}
+										    <img src="{{ im.url }}" alt="{{articulo.titulo}}">
+										{% endthumbnail %}
+									{% else %}
+										<img src="http://placehold.it/200&text=..." >
+									{% endif %}
 									<small>{{articulo.volanta}}</small>
 									<h3>{{articulo.titulo}}</h3>
 									<p>{{articulo.bajada|truncatewords:20}}</p>
