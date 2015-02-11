@@ -15,10 +15,18 @@
 								<a href="/articulo/{{articulo.id}}/{{articulo.slug}}/">
 									<small>{{articulo.volanta}}</small>
 									<h1>{{articulo.titulo}}</h1>
+									{% if articulo.imagen %}
 									{% thumbnail articulo.imagen "500x250" crop="center" as im %}
 									    <img src="{{ im.url }}" alt="{{articulo.titulo}}">
 									{% endthumbnail %}
-									<p>{{articulo.bajada|truncatewords:40}}</p>
+									{% else %}
+										<img src="http://placehold.it/500x250&text=..." alt="placeholder">
+									{% endif %}
+									{% if articulo.bajada %}
+										<p>{{articulo.bajada|truncatewords:40}}</p>
+									{% else %}
+										<p>{{articulo.texto|truncatewords:40}}</p>
+									{% endif %}
 								</a>
 							</div>
 						{% endif %}
@@ -28,10 +36,18 @@
 								<a href="/articulo/{{articulo.id}}/{{articulo.slug}}/">
 									<small>{{articulo.volanta}}</small>
 									<h1>{{articulo.titulo}}</h1>
+									{% if articulo.imagen %}
 									{% thumbnail articulo.imagen "350x200" crop="center" as im %}
 									    <img src="{{ im.url }}" alt="{{articulo.titulo}}">
 									{% endthumbnail %}
-									<p>{{articulo.bajada|truncatewords:25}}</p>
+									{% else %}
+										<img src="http://placehold.it/350x200&text=..." alt="placeholder">
+									{% endif %}
+									{% if articulo.bajada %}
+										<p>{{articulo.bajada|safe|truncatewords:25}}</p>
+									{% else %}
+										<p>{{articulo.texto|safe|truncatewords:25}}</p>
+									{% endif %}
 								</a>
 							</div>
 						{% endif %}
@@ -41,10 +57,18 @@
 								<a href="/articulo/{{articulo.id}}/{{articulo.slug}}/">
 									<small>{{articulo.volanta}}</small>
 									<h3>{{articulo.titulo}}</h3>
+									{% if articulo.imagen %}
 									{% thumbnail articulo.imagen "250x130" crop="center" as im %}
 									    <img src="{{ im.url }}" alt="{{articulo.titulo}}">
 									{% endthumbnail %}
-									<p>{{articulo.bajada|truncatewords:30}}</p>
+									{% else %}
+										<img src="http://placehold.it/250x130&text=..." alt="placeholder">
+									{% endif %}
+									{% if articulo.bajada %}
+										<p>{{articulo.bajada|safe|truncatewords:30}}</p>
+									{% else %}
+										<p>{{articulo.texto|safe|truncatewords:30}}</p>
+									{% endif %}
 								</a>
 							</div>
 						{% endif %}
