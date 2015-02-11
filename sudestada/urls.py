@@ -20,7 +20,6 @@ urlpatterns = patterns('',
 
     url(r'^comprar/$', 'revista.views.comprar', name='comprar'),
 
-
     (r'^info/', include('django.contrib.flatpages.urls')),
 
     #migrando url viejas
@@ -28,9 +27,6 @@ urlpatterns = patterns('',
     url(r'^web06/article.php3?/$', 'revista.views.articulo_migrar', name='articulo_migrar'),
     url(r'^bestiario.php3/$', 'revista.views.edicion_migrar', name='edicion_migrar'),
     url(r'^web06/bestiario.php3/$', 'revista.views.edicion_migrar', name='edicion_migrar'),
-
-    
-    
 
 )
 

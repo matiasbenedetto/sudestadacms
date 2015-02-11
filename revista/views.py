@@ -17,12 +17,17 @@ def index (request):
 	return render_to_response("index.html", locals(), context_instance=RequestContext(request))
 
 
+def busqueda_resultados (request):
+
+	return render_to_response("busqueda_resultados.html", locals(), context_instance=RequestContext(request))
+
+
 def articulo(request, id_articulo, slug):
 	articulo=Articulo.objects.get(id=id_articulo, slug=slug)
 	articulo.vistas=articulo.vistas + 1
 	articulo.save()
 	
-	articulos_relacionados=Articulo.objects.filter(publicado=True)[:4]
+	articulos_relacionados=Articulo.objects.filter(publicado=True, edicion=articulo.edicion).exclude(id=articulo.id).order_by("vistas").reverse()[:6]
 
 	edicion=articulo.edicion
 	return render_to_response("articulo.html", locals(), context_instance=RequestContext(request))
@@ -31,13 +36,13 @@ def articulo(request, id_articulo, slug):
 def articulo_migrar(request):
 	id=int(request.GET['id_article'])
 	articulo = get_object_or_404(Articulo, id=id)
-	return redirect(articulo)
+	return redirect(articulo, permanent=True)
 
 
 def edicion_migrar(request):
 	id=int(request.GET['id_rubrique'])
 	edicion = get_object_or_404(Edicion, id=id)
-	return redirect(edicion)
+	return redirect(edicion, permanent=True)
 
 
 def edicion (request, id_edicion, slug):
