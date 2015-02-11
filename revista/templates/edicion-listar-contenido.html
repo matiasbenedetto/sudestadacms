@@ -2,9 +2,16 @@
 
 <li class="col-md-3 edicion-listada">
 	<a class="mismo-alto" href="/edicion/{{edicion.id}}/{{edicion.slug}}/">
-		{% thumbnail edicion.imagen "200" as im %}
-		    <img src="{{ im.url }}" alt="Tapa numero {{edicion.numero}}, {{edicion.titulo}}">
-		{% endthumbnail %}
+
+		{% if edicion.imagen %}
+			{% thumbnail edicion.imagen "200" as im %}
+			    <img src="{{ im.url }}" alt="Tapa numero {{edicion.numero}}, {{edicion.titulo}}">
+			{% endthumbnail %}
+		{% else %}
+			<img src="http://placehold.it/200x280&text=...">
+		{% endif %}
+
+
 		<p><b>N° {{edicion.numero}}</b></p>
 		<h4>{{edicion.titulo}}</h4>
 		{% if edicion.especial %}

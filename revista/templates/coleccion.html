@@ -15,7 +15,9 @@
 {% block share-data %}
 	<!-- for Facebook -->          
 	<meta property="og:title" content="Colección - {{coleccion.titulo}}" />
+	{% if  ediciones.0.imagen %}
 	<meta property="og:image" content="http://{{ request.META.HTTP_HOST }}{{ediciones.0.imagen.url}}" />
+	{% endif %}
 	<meta property="og:description" content="{% for edicion in coleccion.edicion_set.all %}.{{edicion.titulo}} {% endfor %}" />
 {% endblock %}
 

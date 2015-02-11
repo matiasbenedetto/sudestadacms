@@ -12,7 +12,9 @@
 {% block share-data %}
 	<!-- for Facebook -->          
 	<meta property="og:title" content="{{edicion.titulo}} - {{edicion.coleccion.titulo}} - N°{{edicion.numero}} - Sudestada" />
+	{% if edicion.imagen %}
 	<meta property="og:image" content="http://{{ request.META.HTTP_HOST }}{{edicion.imagen.url}}" />
+	{% endif %}
 	<meta property="og:description" content="{% for articulo in edicion.articulo_set.all %}.{{articulo.titulo}} {% endfor %}" />
 {% endblock %}
 

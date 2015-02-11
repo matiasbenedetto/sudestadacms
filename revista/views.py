@@ -1,16 +1,21 @@
-from django.shortcuts import render, render_to_response, get_object_or_404
+from django.shortcuts import render, render_to_response, get_object_or_404, redirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.template import RequestContext
 from revista.models import *
 
+
 def index (request):
 	ultima_edicion=Edicion.objects.filter(visible=True).exclude(numero=None).order_by('numero').reverse()[0]
-	articulos_ultima_edicion=Articulo.objects.all()
-	#anteultima_edicion=Edicion.objects.filter(visible=True).exclude(numero=None).order_by('numero').reverse()[1]
+	articulos_ultima_edicion=ultima_edicion.articulo_set.filter(visible_en_portada=True, publicado=True)
+
+	anteultima_edicion=Edicion.objects.filter(visible=True).exclude(numero=None).order_by('numero').reverse()[1]
+	articulos_anteultima_edicion=anteultima_edicion.articulo_set.filter(visible_en_portada=True, publicado=True)
+
 	ediciones=Edicion.objects.filter(visible=True, especial=False).exclude(numero=None).order_by('numero').reverse()[:4]
 
-	especiales=Edicion.objects.filter(especial=True, visible=True)[:4]
+	especiales=Edicion.objects.filter(especial=True, visible=True).order_by("fecha").reverse()[:4]
 	return render_to_response("index.html", locals(), context_instance=RequestContext(request))
+
 
 def articulo(request, id_articulo, slug):
 	articulo=Articulo.objects.get(id=id_articulo, slug=slug)
@@ -23,6 +28,18 @@ def articulo(request, id_articulo, slug):
 	return render_to_response("articulo.html", locals(), context_instance=RequestContext(request))
 
 
+def articulo_migrar(request):
+	id=int(request.GET['id_article'])
+	articulo = get_object_or_404(Articulo, id=id)
+	return redirect(articulo)
+
+
+def edicion_migrar(request):
+	id=int(request.GET['id_rubrique'])
+	edicion = get_object_or_404(Edicion, id=id)
+	return redirect(edicion)
+
+
 def edicion (request, id_edicion, slug):
 	edicion=Edicion.objects.get(id=id_edicion, slug=slug)
 	return render_to_response("edicion.html", locals(), context_instance=RequestContext(request))
@@ -30,7 +47,7 @@ def edicion (request, id_edicion, slug):
 
 def coleccion (request, id_coleccion=None, slug=None):
 	coleccion=Coleccion.objects.get(id=id_coleccion, slug=slug)
-	ediciones=Edicion.objects.filter(coleccion=coleccion).order_by('numero').reverse()
+	ediciones=Edicion.objects.filter(coleccion=coleccion).order_by('fecha').reverse()
 	return render_to_response("coleccion.html", locals(), context_instance=RequestContext(request))
 
 
