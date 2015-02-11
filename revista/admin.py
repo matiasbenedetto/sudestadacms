@@ -5,6 +5,7 @@ from django.contrib import admin
 from revista.models import *
 from adminsortable.admin import SortableAdminMixin
 from django.forms import CheckboxSelectMultiple
+from django.contrib.admin.widgets import FilteredSelectMultiple
 from django.contrib.flatpages.admin import FlatPageAdmin, FlatpageForm
 from django.contrib.flatpages.models import FlatPage
 from suit_redactor.widgets import RedactorWidget
@@ -33,7 +34,8 @@ class ArchivoModelAdmin(admin.ModelAdmin):
 class ArticuloModelAdmin(admin.ModelAdmin):
 	model = Articulo
 	formfield_overrides = {
-        models.ManyToManyField: {'widget': CheckboxSelectMultiple()},
+        models.ManyToManyField: {'widget': FilteredSelectMultiple("verbose name", is_stacked=False)  
+     },
     }
 	#filter_horizontal =("secciones",)
 
