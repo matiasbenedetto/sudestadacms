@@ -18,11 +18,26 @@
 
 	<div class="col-md-3">
 		<p>Revista de Cultura, Política y Sociedad</p>
-		<form class="form" id="buscar" action="/buscar/" method="POST">
-			{% csrf_token %}
-			<input type="text" placeholder="Buscar...">
-		</form>
+
+		<h3>Buscar</h3>
+		<script>
+		  (function() {
+		    var cx = '008197868491653373852:s5urx56ovu8';
+		    var gcse = document.createElement('script');
+		    gcse.type = 'text/javascript';
+		    gcse.async = true;
+		    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+		        '//www.google.com/cse/cse.js?cx=' + cx;
+		    var s = document.getElementsByTagName('script')[0];
+		    s.parentNode.insertBefore(gcse, s);
+		  })();
+		</script>
+		<gcse:search></gcse:search>
+
+
+
 	</div>
+
 
 	<ul class="col-md-12" id="secciones">
 		{% for seccion in secciones %}
