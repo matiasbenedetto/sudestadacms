@@ -70,6 +70,9 @@ class Coleccion (models.Model):
     def cantidad_de_ediciones (self):
         return Edicion.objects.filter(coleccion=self, visible=True).count()
 
+    def get_absolute_url(self):
+        return "/coleccion/%i/%s/" % (self.id, self.slug) 
+
 
 class Edicion (models.Model):
 
@@ -98,6 +101,9 @@ class Edicion (models.Model):
         else:
             return None
     thumb.allow_tags = True
+
+    def get_absolute_url(self):
+        return "/edicion/%i/%s/" % (self.id, self.slug) 
 
 
 class Articulo (models.Model):
@@ -130,6 +136,9 @@ class Articulo (models.Model):
         else:
             return None
     thumb.allow_tags = True
+
+    def get_absolute_url(self):
+        return "/articulo/%i/%s/" % (self.id, self.slug) 
 
 
 class Link (models.Model):
