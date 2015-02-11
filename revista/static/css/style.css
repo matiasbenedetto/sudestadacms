@@ -1,4 +1,3 @@
-@import url(http://fonts.googleapis.com/css?family=IM+Fell+DW+Pica);
 /*!
  * Bootstrap v3.3.1 (http://getbootstrap.com)
  * Copyright 2011-2014 Twitter, Inc.
@@ -6444,19 +6443,18 @@ header #secciones li {
   display: inline-block;
   padding: 10px;
 }
-header .form {
-  width: 100%;
+header .cse .gsc-control-cse,
+header .gsc-control-cse {
+  padding: 0!important;
 }
-header .form input {
-  padding-top: 0px;
-  margin-top: 80px;
-  background-color: #fff;
-  border: 1px solid #aaa;
-  border-radius: 3px;
-  font-family: Arial, Helvetica, Sans, Sans-serif;
-  font-size: 1.2rem;
-  padding: 10px;
-  width: 100%;
+header .cse .gsc-control-cse input[type="image"],
+header .gsc-control-cse input[type="image"] {
+  display: none;
+}
+header .cse .gsc-control-cse input[type="text"],
+header .gsc-control-cse input[type="text"] {
+  background: #fff!important;
+  width: 100%!important;
 }
 footer {
   margin-top: 20px;
@@ -6748,6 +6746,9 @@ body.articulo .comentarios h2 {
   padding: 0;
   padding-left: 15px;
   font-size: 1.3rem;
+}
+.edicion .sumario li {
+  margin-bottom: 5px;
 }
 .edicion .sumario a {
   color: #000;
