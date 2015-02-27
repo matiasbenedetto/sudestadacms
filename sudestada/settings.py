@@ -70,6 +70,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.contrib.messages.context_processors.messages",
     "revista.context_processors.secciones",
     "revista.context_processors.articulos_mas_vistos",
+    "revista.context_processors.banners"
 )
 
 ROOT_URLCONF = 'sudestada.urls'
