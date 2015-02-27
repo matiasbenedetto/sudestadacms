@@ -161,3 +161,25 @@ class Archivo (models.Model):
     titulo=models.CharField(max_length=255)
     archivo=models.FileField(upload_to='archivos')
     articulo=models.ForeignKey(Articulo, null=True, blank=True, default=None)
+
+
+class Banner (models.Model):
+
+    def __unicode__(self):
+        return self.titulo
+
+    titulo=models.CharField(max_length=255)
+    imagen=models.ImageField(upload_to='banners')
+    vinculo=models.CharField(max_length=255, blank=True, null=True)
+    orden = models.PositiveIntegerField(default=1)
+    mostrar_titulo=models.BooleanField(default=False)
+    visible=models.BooleanField(default=True)
+
+    def thumb(self):
+        if self.imagen:
+            img = get_thumbnail(self.imagen, '150x100', crop='center', quality=99)
+            return '<img src="%s" width="100" height="100" />' % (img.url)
+        else:
+            return None
+    thumb.allow_tags = True
+

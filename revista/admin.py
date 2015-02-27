@@ -90,6 +90,12 @@ class ColeccionAdmin (admin.ModelAdmin):
 	search_fields = ('titulo',)
 
 
+class BannerAdmin (admin.ModelAdmin):
+	model=Banner
+	list_display = ('thumb', 'titulo', 'vinculo', 'mostrar_titulo', 'visible', 'orden')
+	list_editable = ('titulo', 'vinculo', 'mostrar_titulo', 'visible', 'orden')
+
+
 admin.site.unregister(FlatPage)
 admin.site.register(FlatPage, CustomFlatPageAdmin)
 
@@ -100,3 +106,4 @@ admin.site.register(Autor, AutorAdmin)
 admin.site.register(Seccion, SeccionModelAdmin)
 admin.site.register(Link, LinkModelAdmin)
 admin.site.register(Archivo, ArchivoModelAdmin)
+admin.site.register(Banner, BannerAdmin)
