@@ -65,7 +65,7 @@ def seccion (request, slug):
 	seccion=get_object_or_404(Seccion, slug=slug)
 	articulos_list = seccion.articulo_set.filter(publicado=True)
 
-	paginator = Paginator(articulos_list, 3)
+	paginator = Paginator(articulos_list, 9)
 	page = request.GET.get('pagina')
 	try:
 		articulos = paginator.page(page)
