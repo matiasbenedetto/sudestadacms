@@ -46,6 +46,7 @@ INSTALLED_APPS = (
     'sorl.thumbnail', #
     'adminsortable', # https://github.com/jrief/django-admin-sortable2
     'redactor', # https://github.com/douglasmiranda/django-wysiwyg-redactor
+    'bootstrapform', #https://django-bootstrap-form.readthedocs.org
 
 )
 

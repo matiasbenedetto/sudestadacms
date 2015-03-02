@@ -2,6 +2,7 @@ from django.shortcuts import render, render_to_response, get_object_or_404, redi
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.template import RequestContext
 from revista.models import *
+from forms import *
 
 
 def index (request):
@@ -62,8 +63,7 @@ def coleccion (request, id_coleccion=None, slug=None):
 
 
 def comprar (request):
-
-	return render_to_response("comprar.html", locals(), context_instance=RequestContext(request))
+	return redirect("/contacto/")
 
 
 def seccion (request, slug):
@@ -82,4 +82,16 @@ def seccion (request, slug):
 		articulos = paginator.page(paginator.num_pages)
 
 	return render_to_response("seccion.html", locals(), context_instance=RequestContext(request))
+
+
+def contacto(request):
+	form = ContactoForm()
+	if request.method == "POST":
+		form = ContactoForm(request.POST)
+		if  form.is_valid():
+			send_mail('Contacto desde el sitio web', form.cleaned_data["texto"], settings.DEFAULT_FROM_EMAIL,
+    			[settings.DEFAULT_FROM_EMAIL,], fail_silently=False)
+
+	return render_to_response("contacto.html", locals(), context_instance=RequestContext(request))
+
 
