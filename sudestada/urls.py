@@ -19,6 +19,7 @@ urlpatterns = patterns('',
     url(r'^seccion/(?P<slug>[-\w]+)/$', 'revista.views.seccion', name='seccion'),
 
     url(r'^comprar/$', 'revista.views.comprar', name='comprar'),
+    url(r'^contacto/$', 'revista.views.contacto', name='contacto'),
 
     (r'^info/', include('django.contrib.flatpages.urls')),
 

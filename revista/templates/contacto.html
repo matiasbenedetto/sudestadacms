@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load bootstrap %}
+
+{% block body_class %}articulo contacto{% endblock %}
+
+{% block titulo %}Contactá a Revista Sudestada{% endblock %}
+{% block descripccion %}Podés escribirnos a sudestadarevista@yahoo.com.ar, llamarnos a (011) 4292-1859 o usar este formulario.{% endblock %}
+
+{% block contenido %}
+		<div class="row">
+
+			<div class="row">
+				<div class="col-md-9">
+					<div class="encabezado">
+						<h1>Contacto</h1>
+						<p>Contactanos, nos vamos a poner en contacto lo antes posible.</p>
+						<p>Podés escribirnos a <b>sudestadarevista@yahoo.com.ar</b>, llamarnos a <b>(011) 4292-1859</b> o usar este formulario.</p>
+					</div>
+					
+					<form method="POST">
+						{{form|bootstrap}}
+						<button class="btn btn-warning btn-lg" action="submit">Enviar Mensaje</button>
+					</form>
+				</div>
+
+				{% include "sidebar.html" %}
+			</div>
+		
+	</div>
+{% endblock %}
