@@ -6,7 +6,7 @@
 		<p>Otro periodismo</p>
 	</div>
 
-	<div class="columna col-md-3 col-md-offset-1">
+	<div class="columna col-md-2 col-md-offset-1">
 		<h3>Nosotros</h3>
 		<ul>
 			{% get_flatpages '/acerca/' as pages %}
@@ -16,11 +16,20 @@
 		</ul>
 	</div>
 
-	<div class="columna col-md-3">
+	<div class="columna col-md-2">
 		<h3>Redes Sociales</h3>
 		<ul>
 		    <li><a href="https://www.facebook.com/sudestadarevista">Facebook</a></li>
 		    <li><a href="https://twitter.com/revsudestada">Twitter</a></li>
+		</ul>
+	</div>
+	
+	<div class="columna col-md-2">
+		<h3>Colecciones</h3>
+		<ul>
+			{% for coleccion in lista_colecciones %}
+		    	<li><a href="/coleccion/{{coleccion.id}}/{{coleccion.slug}}/">{{coleccion.titulo}}</a></li>
+		    {% endfor %}
 		</ul>
 	</div>
 

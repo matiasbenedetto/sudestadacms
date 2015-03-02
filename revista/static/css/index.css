@@ -1021,5 +1021,7 @@ button.close{-webkit-appearance:none;padding:0;cursor:pointer;background:transpa
 @media print{.visible-print-inline{display:inline !important}}.visible-print-inline-block{display:none !important}
 @media print{.visible-print-inline-block{display:inline-block !important}}@media print{.hidden-print{display:none !important}}.index header{margin-bottom:0}
 .index .ediciones-anteriores{background-color:#eee;padding:0;margin-bottom:40px}
+.index #numeros{margin-bottom:40px}
+.index .numeros-anteriores{margin-top:0;margin-bottom:0}
 .index #todas-las-ediciones{color:#333;text-align:center;margin-bottom:20px;display:block;margin-top:10px}
 .index a{color:#000}
