@@ -53,6 +53,8 @@
 							{% include 'edicion-listar-contenido.html' %}					
 						{% endfor %}
 					{% endwith %}
+					
+					<a class="col-md-12" id="todas-las-ediciones" href="/coleccion/{{coleccion.coleccion.id}}/{{coleccion.coleccion.slug}}/"><span class="glyphicon glyphicon-th"></span> Ver todos los numeros de {{coleccion.coleccion.titulo}}</a>
 				</ul>
 			</div>
 		{% endfor %}
