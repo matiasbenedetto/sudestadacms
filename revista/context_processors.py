@@ -1,4 +1,4 @@
-from models import Seccion, Link, Articulo, Banner
+from models import Seccion, Link, Articulo, Banner, Coleccion
 
 def links(request):
 	links = Link.objects.filter(activo=True).order_by('orden')
@@ -18,3 +18,8 @@ def articulos_mas_vistos(request):
 def banners(request):
 	banners = Banner.objects.filter(visible=True).order_by('orden')
 	return {'banners':banners}
+
+
+def lista_colecciones(request):
+	lista_colecciones = Coleccion.objects.filter(visible=True)
+	return {'lista_colecciones':lista_colecciones}

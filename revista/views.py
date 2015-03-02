@@ -13,7 +13,12 @@ def index (request):
 
 	ediciones=Edicion.objects.filter(visible=True, especial=False).exclude(numero=None).order_by('numero').reverse()[:4]
 
-	especiales=Edicion.objects.filter(especial=True, visible=True).order_by("fecha").reverse()[:4]
+	colecciones_especiales =[]
+	for coleccion in Coleccion.objects.filter(especial=True):
+		colecciones_especiales.append({
+					"coleccion":coleccion,
+					"ediciones":coleccion.edicion_set.all().order_by("id").reverse()[:4]
+				})			
 	return render_to_response("index.html", locals(), context_instance=RequestContext(request))
 
 

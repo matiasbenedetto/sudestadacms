@@ -63,6 +63,7 @@ class Coleccion (models.Model):
     visible=models.BooleanField(default=True)
     imagen=models.ImageField(upload_to='img-colecciones', blank=True, default=None)
     descripccion=models.TextField(blank=True)
+    especial=models.BooleanField(default=True)
 
     def ediciones (self):
         return Edicion.objects.filter(coleccion=self, visible=True)
