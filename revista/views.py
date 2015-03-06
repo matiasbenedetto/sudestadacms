@@ -51,6 +51,10 @@ def edicion_migrar(request):
 	return redirect(edicion, permanent=True)
 
 
+def index_migrar(request):
+	return redirect("/", permanent=True)
+
+
 def edicion (request, id_edicion, slug):
 	edicion=Edicion.objects.get(id=id_edicion, slug=slug)
 	return render_to_response("edicion.html", locals(), context_instance=RequestContext(request))
