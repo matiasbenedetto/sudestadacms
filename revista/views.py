@@ -3,6 +3,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.template import RequestContext
 from revista.models import *
 from forms import *
+import settings
 
 
 def index (request):
@@ -94,7 +95,7 @@ def contacto(request):
 		form = ContactoForm(request.POST)
 		if  form.is_valid():
 			send_mail('Contacto desde el sitio web', form.cleaned_data["texto"], settings.DEFAULT_FROM_EMAIL,
-    			[settings.DEFAULT_FROM_EMAIL,], fail_silently=False)
+    			['sudestadarevista@yahoo.com.ar','matias.benedetto@gmail.com'], fail_silently=False)
 
 	return render_to_response("contacto.html", locals(), context_instance=RequestContext(request))
 
