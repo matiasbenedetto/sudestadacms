@@ -11,16 +11,26 @@
 
 			<div class="row">
 				<div class="col-md-9">
-					<div class="encabezado">
-						<h1>Contacto</h1>
-						<p>Contactanos, nos vamos a poner en contacto lo antes posible.</p>
-						<p>Podés escribirnos a <b>sudestadarevista@yahoo.com.ar</b>, llamarnos a <b>(011) 4292-1859</b> o usar este formulario.</p>
-					</div>
 					
-					<form method="POST">
-						{{form|bootstrap}}
-						<button class="btn btn-warning btn-lg" action="submit">Enviar Mensaje</button>
-					</form>
+					
+					{% if form.is_valid %}
+						<div class="encabezado">
+							<h1>Ya recibimos tu mensaje</h1>
+							<p>Gracias por escribirnos, te contestaremos lo más pronto posible.</p>
+						</div>
+					{% else %}
+						<div class="encabezado">
+							<h1>Contacto</h1>
+							<p>Contactanos, nos vamos a poner en contacto lo antes posible.</p>
+							<p>Podés escribirnos a <b>sudestadarevista@yahoo.com.ar</b>, llamarnos a <b>(011) 4292-1859</b> o usar este formulario.</p>
+						</div>
+
+						<form method="POST">
+							{% csrf_token %}
+							{{form|bootstrap}}
+							<button class="btn btn-warning btn-lg" action="submit">Enviar Mensaje</button>
+						</form>
+					{% endif %}
 				</div>
 
 				{% include "sidebar.html" %}
