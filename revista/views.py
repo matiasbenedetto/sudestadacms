@@ -3,7 +3,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.template import RequestContext
 from revista.models import *
 from forms import *
-import settings
+from sudestada import settings
 
 
 def index (request):
