@@ -128,7 +128,11 @@ SUIT_CONFIG = {
     'ADMIN_NAME': 'Revista Sudestada'
 }
 
-
+EMAIL_HOST = 'smtp.webfaction.com'
+EMAIL_HOST_USER = 'sudestada_no_responder'
+EMAIL_HOST_PASSWORD = 'sudesadmin2015'
+DEFAULT_FROM_EMAIL = "no-responder@revistasudestada.com.ar"
+SERVER_EMAIL = "no-responder@revistasudestada.com.ar"
 
 try:
     from settings_local import *
