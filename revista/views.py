@@ -98,8 +98,8 @@ def contacto(request):
 		if  form.is_valid():
 			msg = EmailMessage(
 	                       'Contacto desde el sitio web',
-	                       ('Nombre: %s <br>Email: %s <br>Mensaje:%s' % (form.cleaned_data["nombre"], form.cleaned_data["email"], form.cleaned_data["texto"])),
-	                       settings.DEFAULT_FROM_EMAIL,
+	                       ('<h1>Contacto desde el sitio web</h1><h2>Nombre: %s</h2>Email: %s <br>Mensaje:%s<br>Telefono:%s<br>Direccion:%s' % (form.cleaned_data["nombre"], form.cleaned_data["email"], form.cleaned_data["texto"], form.cleaned_data["telefono"], form.cleaned_data["direccion"])),
+	                       form.cleaned_data["email"],
 	                       ['sudestadarevista@yahoo.com.ar','matias.benedetto@gmail.com']
 			                  )
 			msg.content_subtype = "html"
