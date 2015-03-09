@@ -1,9 +1,11 @@
+# -*- coding: utf-8 -*-
 from django.shortcuts import render, render_to_response, get_object_or_404, redirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.template import RequestContext
 from revista.models import *
 from forms import *
 from sudestada import settings
+from django.core.mail import EmailMessage
 
 
 def index (request):
@@ -94,8 +96,23 @@ def contacto(request):
 	if request.method == "POST":
 		form = ContactoForm(request.POST)
 		if  form.is_valid():
-			send_mail('Contacto desde el sitio web', form.cleaned_data["texto"], settings.DEFAULT_FROM_EMAIL,
-    			['sudestadarevista@yahoo.com.ar','matias.benedetto@gmail.com'], fail_silently=False)
+			msg = EmailMessage(
+	                       'Contacto desde el sitio web',
+	                       ('Nombre: %s <br>Email: %s <br>Mensaje:%s' % (form.cleaned_data["nombre"], form.cleaned_data["email"], form.cleaned_data["texto"])),
+	                       settings.DEFAULT_FROM_EMAIL,
+	                       ['sudestadarevista@yahoo.com.ar','matias.benedetto@gmail.com']
+			                  )
+			msg.content_subtype = "html"
+			msg.send()
+
+			msg = EmailMessage(
+	                       'Contacto Revista Sudestada',
+	                       ('<h1>Gracias por escribirnos.</h1>Ya recibimos tu mensaje, te contestaremos lo más rapido posible. <br><br>Saludos!<br>Revista Sudestada<br>http://revistasudestada.com.ar<br><br><small>Este es un mail automático, no lo respondas.</small>'),
+	                       settings.DEFAULT_FROM_EMAIL,
+	                       [form.cleaned_data["email"]]
+			                  )
+			msg.content_subtype = "html"
+			msg.send()
 
 	return render_to_response("contacto.html", locals(), context_instance=RequestContext(request))
 
