@@ -7,6 +7,25 @@ from embed_video.fields import EmbedVideoField
 from sorl.thumbnail import get_thumbnail
 
 
+class Menu (models.Model):
+
+    def __unicode__(self):
+        return unicode(self.titulo) or u''
+
+    titulo=models.CharField(max_length=255)
+    ubicacion=models.CharField(max_length=255, unique=True)
+
+
+class MenuItem (models.Model):
+
+    def __unicode__(self):
+        return unicode(self.titulo) or u''
+
+    titulo=models.CharField(max_length=255)
+    url = models.CharField(max_length=255)
+    menu = models.ForeignKey(Menu)
+
+
 class Seccion (models.Model):
     
     def __unicode__(self):
