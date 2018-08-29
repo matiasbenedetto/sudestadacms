@@ -6,7 +6,8 @@ from revista.models import *
 from forms import *
 from sudestada import settings
 from django.core.mail import EmailMessage
-
+from django.contrib.sites.models import Site
+from django.core.urlresolvers import reverse
 
 def index (request):
 	ultima_edicion=Edicion.objects.filter(visible=True).exclude(numero=None).order_by('numero').reverse()[0]
@@ -69,8 +70,8 @@ def coleccion (request, id_coleccion=None, slug=None):
 	return render_to_response("coleccion.html", locals(), context_instance=RequestContext(request))
 
 
-def comprar (request):
-	return redirect("/contacto/")
+def comprar (request, id_edicion=None):
+	return redirect("/contacto/%s" % (id_edicion))
 
 
 def seccion (request, slug):
@@ -91,17 +92,44 @@ def seccion (request, slug):
 	return render_to_response("seccion.html", locals(), context_instance=RequestContext(request))
 
 
-def contacto(request):
+def contacto(request, id_edicion=None):
 	form = ContactoForm()
+	current_site = Site.objects.get_current()	
+	if id_edicion:
+		edicion=Edicion.objects.filter(id=id_edicion).first()
+
 	if request.method == "POST":
 		form = ContactoForm(request.POST)
 		if  form.is_valid():
 			msg = EmailMessage(
-	                       'Contacto desde el sitio web',
-	                       ('<h1>Contacto desde el sitio web</h1><h2>Nombre: %s</h2>Email: %s <br>Mensaje: %s<br>Telefono: %s<br>Direccion: %s' % (form.cleaned_data["nombre"], form.cleaned_data["email"], form.cleaned_data["texto"], form.cleaned_data["telefono"], form.cleaned_data["direccion"])),
-	                       settings.DEFAULT_FROM_EMAIL,
-	                       ['sudestadarevista@yahoo.com.ar']
-			                  )
+				'Contacto desde el sitio web',
+				('<h1>Contacto desde el sitio web</h1><br>\
+				------------------------------------------<br><br>\
+				Sobre la edicion: %s<br>\
+				Numero: %s<br>\
+				Link: %s<br>\
+				Coleccion: %s<br>\
+				------------------------------------------<br><br>\
+				<h2>Nombre: %s</h2>\
+				Email: %s <br>\
+				Mensaje: %s<br>\
+				Telefono: %s<br>\
+				Direccion: %s<br>'
+				% (
+				edicion.titulo,
+				edicion.numero,
+				"%s%s" % (current_site.domain, reverse('edicion', args=(edicion.id, edicion.slug)) ),
+				edicion.coleccion.titulo,
+				form.cleaned_data["nombre"],
+				form.cleaned_data["email"],
+				form.cleaned_data["texto"],
+				form.cleaned_data["telefono"],
+				form.cleaned_data["direccion"])
+				),
+				
+				settings.DEFAULT_FROM_EMAIL,
+				['sudestadarevista@yahoo.com.ar']
+			)
 			msg.content_subtype = "html"
 			msg.send()
 

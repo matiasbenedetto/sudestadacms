@@ -128,7 +128,7 @@ SUIT_CONFIG = {
     'ADMIN_NAME': 'Revista Sudestada'
 }
 
-#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_HOST = 'smtp.webfaction.com'
 EMAIL_HOST_USER = 'sudestada_no_responder'
 EMAIL_HOST_PASSWORD = 'sudesadmin2015'

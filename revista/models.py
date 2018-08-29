@@ -100,13 +100,14 @@ class Edicion (models.Model):
         return unicode(self.titulo) or u''
 
     titulo=models.CharField(max_length=255, blank=True, null=True, default=None)
-    slug =  models.SlugField(max_length=100, default="")
+    slug=models.SlugField(max_length=100, default="")
     imagen=models.ImageField(upload_to='img-ediciones', blank=True, default=None)
     fecha=models.DateTimeField()
     numero=models.IntegerField(blank=True, null=True)
     especial=models.BooleanField(default=False)
     visible=models.BooleanField(default=True)
     coleccion=models.ForeignKey(Coleccion, default=None, blank=True, null=True)
+    enlace_tienda=models.URLField(default=None, blank=True, null=True)
 
     def articulos (self):
         return Articulo.objects.filter(edicion=self, publicado=True).order_by("orden")
