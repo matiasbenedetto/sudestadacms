@@ -1,0 +1,7 @@
+{% if menu %}
+    <ul>
+        {% for item in menu.menuitem_set.all %}
+            <li><a href="{{item.url}}">{{item.titulo}}</a></li>
+        {% endfor %}
+    </ul>
+{% endif %}

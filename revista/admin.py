@@ -96,6 +96,16 @@ class BannerAdmin (admin.ModelAdmin):
 	list_editable = ('titulo', 'vinculo', 'mostrar_titulo', 'visible', 'orden')
 
 
+class MenuItemInline(admin.TabularInline):
+    model = MenuItem
+
+class MenuAdmin (admin.ModelAdmin):
+	model=Menu
+	list_display = ('titulo', 'ubicacion')
+	inlines = [
+        MenuItemInline,
+    ]
+
 admin.site.unregister(FlatPage)
 admin.site.register(FlatPage, CustomFlatPageAdmin)
 
@@ -107,3 +117,4 @@ admin.site.register(Seccion, SeccionModelAdmin)
 admin.site.register(Link, LinkModelAdmin)
 admin.site.register(Archivo, ArchivoModelAdmin)
 admin.site.register(Banner, BannerAdmin)
+admin.site.register(Menu, MenuAdmin)

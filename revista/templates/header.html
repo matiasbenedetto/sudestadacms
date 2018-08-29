@@ -1,18 +1,10 @@
-{% load staticfiles flatpages %}
+{% load staticfiles flatpages menus %}
 
 <header class="row">
 	<div class="col-md-3">
 
 		<ul>
-			<li><a href="/">Principal</a></li>
-			{% get_flatpages '/acerca/' as pages %}
-			{% for page in pages %}
-		        <li><a href="/info{{ page.url }}">{{ page.title }}</a></li>
-		    {% endfor %}
-		    <li><a href="/contacto/">Contacto</a></li>
-		    <li><a href="/coleccion/2/revista/">Revista</a></li>
-		    <li><a href="/coleccion/1/sudestada-de-coleccion/">De Colección</a></li>
-		    <li><a href="/coleccion/3/cuadernos-sudestada/">Cuadernos</a></li>
+			{% get_menu "SUPERIOR" %}
 		</ul>
 	</div>
 
