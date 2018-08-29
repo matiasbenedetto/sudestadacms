@@ -18,8 +18,8 @@ urlpatterns = patterns('',
     url(r'^coleccion/(?P<id_coleccion>\d+)/(?P<slug>[-\w]+)/$', 'revista.views.coleccion', name='coleccion'),
     url(r'^seccion/(?P<slug>[-\w]+)/$', 'revista.views.seccion', name='seccion'),
 
-    url(r'^comprar/$', 'revista.views.comprar', name='comprar'),
-    url(r'^contacto/$', 'revista.views.contacto', name='contacto'),
+    url(r'^comprar/((?P<id_edicion>\w+)/)?$', 'revista.views.comprar', name='comprar'),
+    url(r'^contacto/((?P<id_edicion>\w+)/)?$', 'revista.views.contacto', name='contacto'),
 
     (r'^info/', include('django.contrib.flatpages.urls')),
 
