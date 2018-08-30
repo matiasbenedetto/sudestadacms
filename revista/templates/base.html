@@ -2,10 +2,10 @@
 <html>
 	<head>
 		{% if debug %}
-			<link rel="stylesheet" type="text/less" href="{% static 'css/style.less' %}?vsfsddf=2123">
+			<link rel="stylesheet" type="text/less" href="{% static 'styles/src/style.less' %}?v={% now 'U' %}">
 			<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.1.0/less.min.js"></script>
 		{% else %}
-			<link rel="stylesheet" href="{% static 'css/style.css' %}">
+			<link rel="stylesheet" href="{% static 'styles/dist/style.css' %}">
 		{% endif %}
 
 		<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>

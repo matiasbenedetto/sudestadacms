@@ -5,3 +5,4 @@ static/*
 *.pyc
 settings_local.*
 settings_local.*
+node_modules
