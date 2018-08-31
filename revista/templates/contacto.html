@@ -30,7 +30,7 @@
 									{% if edicion.imagen %}
 										<div class="imagen col-sm-2">
 											{% thumbnail edicion.imagen "200" as im %}
-												<img src="{{ im.url }}" alt="{{edicion.titulo}}">
+												<img src="{{ im.url }}" alt="{{edicion.titulo}}" class="img-responsive">
 											{% endthumbnail %}
 										</div>
 									{% endif %}
