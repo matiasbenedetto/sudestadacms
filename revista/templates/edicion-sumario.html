@@ -16,7 +16,7 @@
 
 <a href="/coleccion/{{edicion.coleccion.id}}/{{edicion.coleccion.slug}}/"><h4 class="coleccion">{{edicion.coleccion.titulo}}</h4></a>
 
-<a href="{% if edicion.enlace_tienda %}{{edicion.enlace_tienda}}{% else %}/comprar/{{edicion.id}}{% endif %}" class="btn btn-warning"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> Comprar edición impresa</a>
+<a href="{% if edicion.enlace_tienda %}{{edicion.enlace_tienda}}{% else %}/comprar/{{edicion.id}}{% endif %}" class="btn btn-warning" {% if edicion.enlace_tienda %}target="_blank"{% else %}><span class="glyphicon glyphicon-book" aria-hidden="true"></span> Comprar edición impresa</a>
 
 <h3 class="sumario-titulo">Sumario</h3>
 <ul class="sumario">
