@@ -44,9 +44,9 @@
 										<img src="http://placehold.it/350x200&text=..." alt="placeholder">
 									{% endif %}
 									{% if articulo.bajada %}
-										<p>{{articulo.bajada|safe|truncatewords:25}}</p>
+										<p>{{articulo.bajada|truncatewords:25}}</p>
 									{% else %}
-										<p>{{articulo.texto|safe|truncatewords:25}}</p>
+										<p>{{articulo.texto|truncatewords:25}}</p>
 									{% endif %}
 								</a>
 							</div>
@@ -65,9 +65,9 @@
 										<img src="http://placehold.it/250x130&text=..." alt="placeholder">
 									{% endif %}
 									{% if articulo.bajada %}
-										<p>{{articulo.bajada|safe|truncatewords:30}}</p>
+										<p>{{articulo.bajada|truncatewords:30}}</p>
 									{% else %}
-										<p>{{articulo.texto|safe|truncatewords:30}}</p>
+										<p>{{articulo.texto|truncatewords:30}}</p>
 									{% endif %}
 								</a>
 							</div>
