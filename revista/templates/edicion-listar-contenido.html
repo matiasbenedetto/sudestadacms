@@ -21,5 +21,7 @@
 		{% endif %}
 	</a>
 
-	<a href="{% if edicion.enlace_tienda %}{{edicion.enlace_tienda}}{% else %}/comprar/{{edicion.id}}{% endif %}" class="btn btn-warning" {% if edicion.enlace_tienda %}target="_blank"{% else %}><span class="glyphicon glyphicon-book" aria-hidden="true"></span> Comprar edición impresa</a>
+	<a href="{% if edicion.enlace_tienda %}{{edicion.enlace_tienda}}{% else %}/comprar/{{edicion.id}}{% endif %}"
+	class="btn btn-warning" {% if edicion.enlace_tienda %}target="_blank"{% endif %}>
+	<span class="glyphicon glyphicon-book" aria-hidden="true"></span> Comprar edición impresa</a>
 </li>
