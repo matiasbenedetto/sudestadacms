@@ -29,7 +29,9 @@
 								<div class="row">
 									{% if edicion.imagen %}
 										<div class="imagen col-sm-2">
-											<img class="img-responsive" src="{{edicion.imagen.url}}" alt="{{edicion.titulo}}">
+											{% thumbnail edicion.imagen "200" as im %}
+												<img src="{{ im.url }}" alt="{{edicion.titulo}}">
+											{% endthumbnail %}
 										</div>
 									{% endif %}
 									<div class="info col-sm-10">
